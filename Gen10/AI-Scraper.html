@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>ai-scraper</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="AI-Scraper_files/libs/clipboard/clipboard.min.js"></script>
+<script src="AI-Scraper_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="AI-Scraper_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="AI-Scraper_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="AI-Scraper_files/libs/quarto-html/popper.min.js"></script>
+<script src="AI-Scraper_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="AI-Scraper_files/libs/quarto-html/anchor.min.js"></script>
+<link href="AI-Scraper_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="AI-Scraper_files/libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="AI-Scraper_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="AI-Scraper_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="AI-Scraper_files/libs/bootstrap/bootstrap-21c39143584bebe83cb500300cd07cbb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="web-scraping-of-competitor-data-with-generative-ai" class="level1">
+<h1>🤖 Web Scraping of Competitor Data with Generative AI</h1>
+<div data-align="center">
+<p><img src="https://img.shields.io/badge/AI_Powered-Ollama-purple?style=for-the-badge&amp;logo=ollama.png" class="img-fluid" alt="AI Powered"> <img src="https://img.shields.io/badge/Open_Source-Community-blue?style=for-the-badge&amp;logo=github.png" class="img-fluid" alt="Open Source"> <img src="https://img.shields.io/badge/Databricks-Enabled-orange?style=for-the-badge&amp;logo=databricks.png" class="img-fluid" alt="Databricks"></p>
+<p><strong>🚀 <em>The Ultimate AI-Powered Competitive Intelligence Platform</em> 🚀</strong></p>
+</div>
+<section id="problem-statement" class="level3">
+<h3 class="anchored" data-anchor-id="problem-statement"><strong>Problem Statement</strong></h3>
+<p>The problem of obtaining competitor data is nothing new. Building web scrapers has always been a <strong>complex, time-consuming and costly</strong> task because websites: - Have complex structures. - Constantly change. - Prevent bots from accessing their public information. - Create a monetary need to obtain information.</p>
+<p>The need for competitor prices has increased within the Parts Pricing Optimisation Data Science Team. We considered all possible solutions to this problem, and instead of using traditional tools, we decided to take advantage of modern ones to make the process <strong>simpler, less time-consuming and free of charge</strong>. That’s what we did, and here’s a brief overview of what we accomplished:</p>
+</section>
+<section id="performance-metrics" class="level3">
+<h3 class="anchored" data-anchor-id="performance-metrics"><strong>Performance Metrics</strong></h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 34%">
+<col style="width: 31%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>🎯 <strong>Metric</strong></th>
+<th>📈 <strong>Value</strong></th>
+<th>💡 <strong>Impact</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Automation Rate</strong></td>
+<td><code>95%</code></td>
+<td>Save 15+ hours/week</td>
+</tr>
+<tr class="even">
+<td><strong>Web sites</strong></td>
+<td><code>11 (more on the way)</code></td>
+<td>6 brands and 3 countries already receiving competitor data</td>
+</tr>
+<tr class="odd">
+<td><strong>Cost</strong></td>
+<td><code>0$</code></td>
+<td>No paid APIs, no proxies</td>
+</tr>
+<tr class="even">
+<td><strong>Compliance</strong></td>
+<td><code>100%</code></td>
+<td>Ethical &amp; legal</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="cambios" class="level1">
+<h1>Cambios</h1>
+<ul>
+<li>No mencionar todas las páginas sino solo los mercados aprobados (Subaru y BMW de época de Tiger).</li>
+<li>Explicación sencilla de web scraping: definición - (pasante esclavo sacando info, mentiras xd (manual) - librerías como requests o beautiful soup (insostenibilidad) - herramientas modernas LLMs).</li>
+<li>Enfatizar en las dificultades de scrapear - sostenibilidad y escalabilidad</li>
+<li>Mencionar proxy para reducir tiempos de ejecución - explicación sencilla como el ejemplo de los disfraces. Además posible reducción de costos al bajar la utilización del cluster.</li>
+<li>Simplificar parte de Solution Implementation y todo en general</li>
+<li>Performance metrics al inicio con más métricas.</li>
+<li>Agregar más grafiquitos.</li>
+</ul>
+<hr>
+<section id="table-of-contents" class="level2">
+<h2 class="anchored" data-anchor-id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#-web-scraping-of-competitor-data-with-generative-ai">🤖 Web Scraping of Competitor Data with Generative AI</a>
+<ul>
+<li><a href="#problem-statement"><strong>Problem Statement</strong></a></li>
+<li><a href="#performance-metrics"><strong>Performance Metrics</strong></a></li>
+</ul></li>
+<li><a href="#cambios">Cambios</a>
+<ul>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#1-the-tools">1. The Tools</a></li>
+<li><a href="#2-features">2. Features</a></li>
+<li><a href="#3-the-plan">3. The Plan</a></li>
+<li><a href="#4-solution-implementation">4. Solution Implementation</a>
+<ul>
+<li><a href="#41-setup">4.1 Setup</a></li>
+<li><a href="#42-databricks-workspace">4.2 Databricks Workspace</a>
+<ul>
+<li><a href="#421-oem_codes">4.2.1 <em>oem_codes</em></a></li>
+<li><a href="#422-scraper_calls">4.2.2 <em>scraper_calls</em></a></li>
+<li><a href="#423-markets">4.2.3 <em>markets</em></a></li>
+<li><a href="#424-mystery-shopper-and-third-party-scrapper">4.2.4 <em>mystery shopper and third party scrapper</em></a></li>
+</ul></li>
+<li><a href="#43-ai-scrapper-logic">4.3 AI scrapper logic</a></li>
+<li><a href="#44-ai-scrapper-class">4.4 AI scrapper class</a></li>
+</ul></li>
+<li><a href="#5-final-table">5. Final table</a></li>
+<li><a href="#6-databricks-job">6. Databricks Job</a></li>
+<li><a href="#7-our-own-scraping-ai-assistant">7. Our own scraping AI Assistant</a></li>
+<li><a href="#8-next-steps">8. Next Steps</a></li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="the-tools" class="level2">
+<h2 class="anchored" data-anchor-id="the-tools">1. The Tools</h2>
+<div class="highlight-box">
+<p>Competitor data is truly valuable. Previously, entire teams would be dedicated to the task, but with this development, a single person can incorporate and keep track of dozens of websites with minimal maintenance. We have implemented a solution that combines <strong>two technology stacks</strong>:</p>
+<p><img src="https://img.shields.io/badge/Crawl4AI-3776AB?style=flat-square&amp;logo=python&amp;logoColor=white.png" class="img-fluid" alt="Crawl4AI"> <img src="https://img.shields.io/badge/Ollama-412991?style=flat-square&amp;logo=ollama&amp;logoColor=white.png" class="img-fluid" alt="Ollama"></p>
+</div>
+<p><a href="https://github.com/unclecode/crawl4ai">Crawl4AI</a> is an open-source Python library for web crawling and scraping that provides a variety of tools for <strong>AI-ready data extraction</strong>. It enables the extraction of elements from websites using both traditional methods and Large Language Model (LLM) tools.</p>
+<div class="feature-card">
+
+</div>
+<p><br>
+<a href="https://ollama.com/search">Ollama</a> is an open-source tool that simplifies the process of <strong>running LLMs on a local computer</strong>. This means there is no need to pay for an API key, since we can access multiple models as long as our machine can run them. In this case, the Databricks cluster is more than sufficient.</p>
+<blockquote class="blockquote">
+<p>Both of these tools are supported by a large community and are safe to use.</p>
+</blockquote>
+</section>
+<section id="features" class="level2">
+<h2 class="anchored" data-anchor-id="features">2. Features</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 42%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>🕷️ <strong>Smart scraping</strong></td>
+<td>Transform manual research into automated tasks</td>
+<td>✅ Ready</td>
+</tr>
+<tr class="even">
+<td>🔧 <strong>Scalability</strong></td>
+<td>Robust to website changes</td>
+<td>✅ Ready</td>
+</tr>
+<tr class="odd">
+<td>⚡ <strong>Performance</strong></td>
+<td>Handle multiple competitors simultaneously</td>
+<td>✅ Ready</td>
+</tr>
+<tr class="even">
+<td>🛡️ <strong>Compliance</strong></td>
+<td>Built-in ethical guidelines and rate limiting</td>
+<td>✅ Ready</td>
+</tr>
+<tr class="odd">
+<td>📊 <strong>PPO tool</strong></td>
+<td>Include competitors information in simulator tool</td>
+<td>✅ Ready</td>
+</tr>
+<tr class="even">
+<td>💡 <strong>Coding assistant</strong></td>
+<td>Local coding assistant for fast iteration</td>
+<td>✅ Ready</td>
+</tr>
+<tr class="odd">
+<td>📅 <strong>Monthly monitoring</strong></td>
+<td>Extract competitor prices to build a historical database</td>
+<td>🔄 In progress</td>
+</tr>
+<tr class="even">
+<td>🚀 <strong>Scalability-jsjsjsjs</strong></td>
+<td>Solution applicable to any team in Inchcape</td>
+<td>📋 Planned</td>
+</tr>
+<tr class="odd">
+<td>🤖 <strong>AI analysis</strong></td>
+<td>Track competitors price behaviours with AI</td>
+<td>📋 Planned</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="the-plan" class="level2">
+<h2 class="anchored" data-anchor-id="the-plan">3. The Plan</h2>
+<p>First, we study suitable websites to ensure that they are relevant (i.e.&nbsp;not accessories or vehicles) and allow data extraction. We then follow this structure to extract competitors’ data on parts pricing.</p>
+<pre class="mermaid"><code>graph TD
+
+    J[Databricks job]
+    K[Azure Delta Lake]
+    J --&gt; A
+    I[OEM part numbers]
+    A[Competitor websites] --&gt; B[Non-suitable websites]
+    A --&gt; C[Suitable websites]
+    F[CSS extraction]
+    G[AI extraction]
+    C --&gt; F
+    C --&gt; G
+    F --&gt; M
+    G --&gt; M
+    H[Competitors data table]
+
+    M[Intelligent scrapper class]
+    
+    K --&gt; L[ERP classification]
+    L --&gt; I
+    I ---&gt; M
+    M --&gt; H
+    
+
+    N[PPO simulator tool]
+    
+    H --&gt; N
+   </code></pre>
+</section>
+<section id="solution-implementation" class="level2">
+<h2 class="anchored" data-anchor-id="solution-implementation">4. Solution Implementation</h2>
+<p>This section briefly outlines all the steps involved in building the AI-powered web scraper and provides evidence of its functionality within the Databricks ecosystem.</p>
+<section id="setup" class="level3">
+<h3 class="anchored" data-anchor-id="setup">4.1 Setup</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install Ollama</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-fsSL</span> https://ollama.com/install.sh <span class="kw">|</span> <span class="fu">sh</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># install crawl4ai and its dependencies</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-U</span> crawl4ai</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> playwright install <span class="at">--with-deps</span> chromium</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># our chosen large language model</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> pull qwen2.5:3b</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="databricks-workspace" class="level3">
+<h3 class="anchored" data-anchor-id="databricks-workspace">4.2 Databricks Workspace</h3>
+<p>The project is already working in the databricks ecosystem, loading and writing tables once a month.</p>
+<p><img src="img/folders.png" width="200"></p>
+<section id="oem_codes" class="level4">
+<h4 class="anchored" data-anchor-id="oem_codes">4.2.1 <em>oem_codes</em></h4>
+<p>Different brands and countries use different ERPs (SAP, Autoline and Derco, for example). This folder contains specific routines that extract all OEM part numbers and consolidate them in a table with a <strong>consistent format</strong>.</p>
+</section>
+<section id="scraper_calls" class="level4">
+<h4 class="anchored" data-anchor-id="scraper_calls">4.2.2 <em>scraper_calls</em></h4>
+<p>It contains the scraping class and the functions used to <strong>automate</strong> the loading, extraction, post-processing and writing of all web pages.</p>
+</section>
+<section id="markets" class="level4">
+<h4 class="anchored" data-anchor-id="markets">4.2.3 <em>markets</em></h4>
+<p>It contains notebooks for <strong>all the web pages</strong> that have already been scraped. It also contains a notebook for <strong>testing</strong> every new web page quickly.</p>
+</section>
+<section id="mystery-shopper-and-third-party-scrapper" class="level4">
+<h4 class="anchored" data-anchor-id="mystery-shopper-and-third-party-scrapper">4.2.4 <em>mystery shopper and third party scrapper</em></h4>
+<p>It does not matter if a market did a mystery shopper of their own, or if they get their competitor data through a third party. We included this cases to mantain the <strong>same format</strong> as our competitor table.</p>
+</section>
+</section>
+<section id="ai-scrapper-logic" class="level3">
+<h3 class="anchored" data-anchor-id="ai-scrapper-logic">4.3 AI scrapper logic</h3>
+<p>Traditionally, a scraper requires you to inspect the HTML of a webpage and find the tags for every element you want to extract. For example, if we wanted the price of a single product, the <strong>HTML</strong> tag would look like this:</p>
+<p><img src="img/html_tag.png" width="400"></p>
+<p>Once we have identified the elements, we use an extraction strategy via CSS or XPath. This process must be repeated for every element on every web page! We currently extract the following elements:</p>
+<ul>
+<li>part name</li>
+<li>MSRP or list price</li>
+<li>sale price</li>
+<li>We also need something called the ‘BaseSelector’, which is the part of the website that contains the information we are looking for.</li>
+</ul>
+<p>This equates to four elements per website. Since we currently scrape 11 of them, a total of <strong>44 elements require manual searching</strong> (plus the discarded ones).</p>
+<p>However, with this new solution, we address the problem we had with two options:</p>
+<ul>
+<li>Use the LLM directly to read the HTML and scrape the data. Use the LLM to detect the HTML tags, and then use the other extraction strategies.</li>
+</ul>
+<p>We opted for a <strong>hybrid approach</strong>, using both the LLM and traditional CSS extraction. This gives us the best of both worlds: robustness to website changes, scalability, and speed.</p>
+</section>
+<section id="ai-scrapper-class" class="level3">
+<h3 class="anchored" data-anchor-id="ai-scrapper-class">4.4 AI scrapper class</h3>
+<p>The class is quite long, but the important thing is that we designed our table with all these columns in mind from the outset:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> CompetitorCrawler:</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, df, competitor, currency, source, country, brand,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    base_selector, oem_name, sale_price, list_price, custom_url <span class="op">=</span> <span class="va">None</span>):</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    .</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    .</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>We have two prompts; one for difficult websites:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>instruction<span class="op">=</span><span class="st">"""</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="st">                From the crawled content, extract the following details:</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="st">                1. Title of the product</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="st">                2. MSRP of the product</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="st">                3. Sale price of the product</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="st">                In structured JSON format</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="st">                {</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="st">                    "title": "Product title",</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="st">                    "mrsp": "Product msrp",</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="st">                    "price": "Product price"</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="st">                }</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="st">                """</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>And another one for regular websites:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>instruction<span class="op">=</span><span class="st">"""</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="st">                From the crawled content extract the html tags of:</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="st">                1. Title of the product</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="st">                2. MSRP of the product</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="st">                3. Sale price of the product</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="st">                4. BaseSelector where the previous three are located</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="st">                In structured JSON format</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="st">                {</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="st">                    "title_tag": "title html tag",</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="st">                    "mrsp_tag": "msrp html tag",</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="st">                    "price_tag": "price html tag",</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="st">                    "base_selector_tag": " base selector tag"</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="st">                }</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="st">                """</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="final-table" class="level2">
+<h2 class="anchored" data-anchor-id="final-table">5. Final table</h2>
+<p>This unique table contains information on every brand and country. You can view it here:</p>
+<pre><code>development.parts_pricing_feature_store_americas_dev.competitors_ppo_global_v2</code></pre>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>MANU_MATNR</strong></th>
+<th><strong>oem_name</strong></th>
+<th><strong>product_hierarchy</strong></th>
+<th><strong>list_price</strong></th>
+<th><strong>sale_price</strong></th>
+<th><strong>url</strong></th>
+<th><strong>scraped_date</strong></th>
+<th><strong>competitor_name</strong></th>
+<th><strong>currency</strong></th>
+<th><strong>country</strong></th>
+<th><strong>brand</strong></th>
+<th><strong>source</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>806750050</td>
+<td>Automatic Transmission Oil Pump Seal</td>
+<td>100005692</td>
+<td>9.87</td>
+<td>7.81</td>
+<td>https://www.subaruparts.com/oem-parts/subaru-automatic-transmission-oil-pump-seal-806750050?c=bD0xJm49U2VhcmNoIFJlc3VsdHM%3D</td>
+<td>2025-11-01</td>
+<td>subaruparts.com</td>
+<td>USD</td>
+<td>CHILE</td>
+<td>SUBARU</td>
+<td>scraper</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="databricks-job" class="level2">
+<h2 class="anchored" data-anchor-id="databricks-job">6. Databricks Job</h2>
+<p>This scraping process runs automatically once a month via a scheduled job. The <strong>11 current webpages</strong> are as follows:</p>
+<p><img src="img/job_webpages.png" width="500"></p>
+<p><br>
+The latest run took 106 hours — just over <strong>four days</strong>. Not bad, considering we made requests at prudent intervals and did not use a proxy for almost 100,000 parts in total. We’ve been making steady improvements each week.</p>
+<p><br>
+<img src="img/job_time.png" width="500"></p>
+<p>We have a <strong>scraping priority</strong>: we use the parts segmentation table to first scrape the parts with AA priority, then AB, then BA, and so on.</p>
+<p>If an error occurs during execution, the scrapper is provided with a <strong>checkpoint capability</strong>. In that case, all progress is saved, and the ability to resume makes it easy to continue from the last OEM part scraped.</p>
+</section>
+<section id="our-own-scraping-ai-assistant" class="level2">
+<h2 class="anchored" data-anchor-id="our-own-scraping-ai-assistant">7. Our own scraping AI Assistant</h2>
+<p>The complexity of the code for this scraper increases with the number of web pages included and with each small feature. Even if the code offers an elegant solution, it will be overwhelming for a new data scientist.</p>
+<p>For this reason, <strong>we have created our own assistant</strong> using the free tier of <strong>Google Gemini</strong>. This assistant considers all the code, not only from Databricks, but also from the official GitHub repository of the Crawl4AI library. With this personalised tool, we can iterate quickly and make modifications with minimal hallucinations. Both ChatGPT and the Databricks assistant struggle with this code.</p>
+<p>The prompt used is as follows:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> llama_index.core.prompts <span class="im">import</span> PromptTemplate</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>qa_prompt_tmpl_str <span class="op">=</span> (</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Context information is below.</span><span class="ch">\n</span><span class="st">"</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"---------------------</span><span class="ch">\n</span><span class="st">"</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"</span><span class="sc">{context_str}</span><span class="ch">\n</span><span class="st">"</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"---------------------</span><span class="ch">\n</span><span class="st">"</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Given the context above, answer the query in a step-by-step manner. "</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Include code snippets when relevant. If you don't know the answer, say 'I don't know!'.</span><span class="ch">\n</span><span class="st">"</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Query: </span><span class="sc">{query_str}</span><span class="ch">\n</span><span class="st">"</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Answer: "</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>qa_prompt_tmpl <span class="op">=</span> PromptTemplate(qa_prompt_tmpl_str)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This is what the assistant can do:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> query_engine.query(<span class="st">'Provide a working example of multiple url crawling with magic mode'</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>display(Markdown(<span class="bu">str</span>(response)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre><code>2025-10-20 20:33:11.323 | INFO     | py4j.clientserver:wait_for_commands:600 | Received command c on object id p0
+To crawl multiple URLs with Magic Mode, you can iterate through a list of URLs and call the arun method for each one within the AsyncWebCrawler context.
+
+Here's a step-by-step example:
+
+1. Import necessary libraries: You'll need AsyncWebCrawler from crawl4ai and asyncio to run the asynchronous code.
+
+import asyncio
+from crawl4ai import AsyncWebCrawler
+
+2. Define a list of URLs: Create a list containing the URLs you want to crawl.
+
+urls_to_crawl = [
+    "https://www.reuters.com/markets/us/global-markets-view-usa-pix-2024-08-29/",
+    "https://crawl4ai.com",
+    "https://janineintheworld.com/places-to-visit-in-central-mexico"
+]
+3. Create an asynchronous function: This function will contain the crawling logic.
+...</code></pre>
+<p>Now, with <strong>GitHub Copilot</strong> integrated into our local environments, we can provide it with the same context and receive an even better assistant that can modify code on the fly!</p>
+</section>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">8. Next Steps</h2>
+<ul>
+<li>Use the AI models to study the patterns and behaviours of multiple competitors.</li>
+<li>Use this tool for other scraping needs across Inchcape.</li>
+</ul>
+<p><br>
+<br>
+*This document was created with the help of GitHub Copilot.</p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
