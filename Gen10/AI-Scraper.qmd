@@ -80,7 +80,7 @@ Competitor data is truly valuable. Previously, entire teams would be dedicated t
 ## 2. Features
 
 | Feature | Description | Status |
-|----------------------|-------------------------------|--------------------|
+|----------------------|------------------------------|--------------------|
 | 🕷️ **Smart scraping** | Transform manual research into automated tasks | ✅ Ready |
 | 🔧 **Scalability** | Robust to website changes | ✅ Ready |
 | ⚡ **Performance** | Handle multiple competitors simultaneously | ✅ Ready |
@@ -97,8 +97,8 @@ Competitor data is truly valuable. Previously, entire teams would be dedicated t
 
 First, we study suitable websites to ensure that they are relevant (i.e. not accessories or vehicles) and allow data extraction. We then follow this structure to extract competitors' data on parts pricing.
 
-``` mermaid
-graph TD
+```{mermaid}
+flowchart LR
 
     J[Databricks job]
     K[Azure Delta Lake]
