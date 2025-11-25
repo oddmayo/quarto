@@ -6,20 +6,124 @@
 **🚀 *The Ultimate AI-Powered Competitive Intelligence Platform* 🚀**
 :::
 
-### **Problem Statement** {#problem-statement}
-
-The problem of obtaining competitor data is nothing new. Building web scrapers has always been a **complex, time-consuming and costly** task because websites: - Have complex structures. - Constantly change. - Prevent bots from accessing their public information. - Create a monetary need to obtain information.
-
-The need for competitor prices has increased within the Parts Pricing Optimisation Data Science Team. We considered all possible solutions to this problem, and instead of using traditional tools, we decided to take advantage of modern ones to make the process **simpler, less time-consuming and free of charge**. That's what we did, and here's a brief overview of what we accomplished:
-
 ### **Performance Metrics** {#performance-metrics}
 
 | 🎯 **Metric** | 📈 **Value** | 💡 **Impact** |
 |-------------------------|-----------------------|-------------------------|
 | **Automation Rate** | `95%` | Save 15+ hours/week |
-| **Web sites** | `11 (more on the way)` | 6 brands and 3 countries already receiving competitor data |
+| **Web sites** | `5 (11 planned, more on the way)` | 2 brands and 3 countries already receiving competitor data |
 | **Cost** | `0$` | No paid APIs, no proxies |
 | **Compliance** | `100%` | Ethical & legal |
+
+### **Problem Statement** {#problem-statement}
+
+::: {.callout-note appearance="simple" icon=false}
+## 🌐 What is Web Scraping?
+
+**Web scraping** is the process of automatically extracting data from websites. Think of it as having a tireless assistant who visits web pages, reads the information, and organizes it into a structured format you can analyze.
+
+:::
+
+```{mermaid}
+%%| fig-width: 7
+flowchart LR
+    subgraph "🌍 The Web"
+        A[("🛒 Website A")]
+        B[("🛒 Website B")]
+        C[("🛒 Website C")]
+    end
+    
+    subgraph "🤖 Web Scraper"
+        D["Visits pages\nautomatically"]
+    end
+    
+    subgraph "📊 Output"
+        E[("Organized\nData")]
+    end
+    
+    A --> D
+    B --> D
+    C --> D
+    D --> E
+    
+    style D fill:#9b59b6,color:#fff
+    style E fill:#27ae60,color:#fff
+```
+
+::: {.panel-tabset}
+
+### 👤 Manual Research
+
+::: {layout="[30,70]"}
+![](https://media.giphy.com/media/3o7TKRwpns23QMNNiE/giphy.gif){width="120" fig-align="center"}
+
+| Aspect | Reality |
+|--------|---------|
+| **Speed** | Hours per website |
+| **Scale** | Limited by human capacity |
+| **Cost** | High (staff time) |
+| **Accuracy** | Prone to errors |
+| **Sustainability** | Not feasible long-term |
+:::
+
+### 🔧 Traditional Scraping
+
+::: {layout="[30,70]"}
+![](https://media.giphy.com/media/ZVik7pBtu9dNS/giphy.gif){width="120" fig-align="center"}
+
+| Aspect | Reality |
+|--------|---------|
+| **Speed** | Fast, but fragile |
+| **Scale** | Breaks when sites change |
+| **Cost** | Developer maintenance |
+| **Accuracy** | Good until it breaks |
+| **Sustainability** | Constant fixes needed |
+:::
+
+### 🤖 AI-Powered (Our Solution)
+
+::: {layout="[30,70]"}
+![](https://media.giphy.com/media/RR32PdmXEwkuzZFKSa/giphy.gif){width="120" fig-align="center"}
+
+| Aspect | Reality |
+|--------|---------|
+| **Speed** | ⚡ Fast & adaptive |
+| **Scale** | ✅ Handles changes automatically |
+| **Cost** | 💰 Free (local LLMs) |
+| **Accuracy** | 🎯 Self-correcting |
+| **Sustainability** | 🔄 Minimal maintenance |
+:::
+
+:::
+
+---
+
+::: {.callout-important appearance="simple"}
+## 💰 Why Competitor Data Matters
+
+In **parts pricing**, knowing what competitors charge is the difference between winning and losing customers. Without this data, pricing decisions are guesswork.
+:::
+
+::: {layout-ncol=3}
+::: {.card}
+### 🏗️ Complex Structures
+Websites are built differently — no two are alike
+:::
+
+::: {.card}
+### 🔄 Constant Changes
+Layouts update frequently, breaking traditional scrapers
+:::
+
+::: {.card}
+### 🛡️ Anti-Bot Measures
+Sites actively block automated data collection
+:::
+:::
+
+Our team needed competitor prices **at scale**. Instead of expensive APIs or manual research, we built something **simpler, faster, and free** using modern AI tools.
+
+
 
 # Cambios {#cambios}
 

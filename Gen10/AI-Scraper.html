@@ -92,11 +92,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="https://img.shields.io/badge/AI_Powered-Ollama-purple?style=for-the-badge&amp;logo=ollama.png" class="img-fluid" alt="AI Powered"> <img src="https://img.shields.io/badge/Open_Source-Community-blue?style=for-the-badge&amp;logo=github.png" class="img-fluid" alt="Open Source"> <img src="https://img.shields.io/badge/Databricks-Enabled-orange?style=for-the-badge&amp;logo=databricks.png" class="img-fluid" alt="Databricks"></p>
 <p><strong>🚀 <em>The Ultimate AI-Powered Competitive Intelligence Platform</em> 🚀</strong></p>
 </div>
-<section id="problem-statement" class="level3">
-<h3 class="anchored" data-anchor-id="problem-statement"><strong>Problem Statement</strong></h3>
-<p>The problem of obtaining competitor data is nothing new. Building web scrapers has always been a <strong>complex, time-consuming and costly</strong> task because websites: - Have complex structures. - Constantly change. - Prevent bots from accessing their public information. - Create a monetary need to obtain information.</p>
-<p>The need for competitor prices has increased within the Parts Pricing Optimisation Data Science Team. We considered all possible solutions to this problem, and instead of using traditional tools, we decided to take advantage of modern ones to make the process <strong>simpler, less time-consuming and free of charge</strong>. That’s what we did, and here’s a brief overview of what we accomplished:</p>
-</section>
 <section id="performance-metrics" class="level3">
 <h3 class="anchored" data-anchor-id="performance-metrics"><strong>Performance Metrics</strong></h3>
 <table class="caption-top table">
@@ -120,8 +115,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td><strong>Web sites</strong></td>
-<td><code>11 (more on the way)</code></td>
-<td>6 brands and 3 countries already receiving competitor data</td>
+<td><code>5 (11 planned, more on the way)</code></td>
+<td>2 brands and 3 countries already receiving competitor data</td>
 </tr>
 <tr class="odd">
 <td><strong>Cost</strong></td>
@@ -136,6 +131,226 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 </section>
+<section id="problem-statement" class="level3">
+<h3 class="anchored" data-anchor-id="problem-statement"><strong>Problem Statement</strong></h3>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>🌐 What is Web Scraping?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Web scraping</strong> is the process of automatically extracting data from websites. Think of it as having a tireless assistant who visits web pages, reads the information, and organizes it into a structured format you can analyze.</p>
+</div>
+</div>
+<div class="cell" data-fig-width="7" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    subgraph "🌍 The Web"
+        A[("🛒 Website A")]
+        B[("🛒 Website B")]
+        C[("🛒 Website C")]
+    end
+    
+    subgraph "🤖 Web Scraper"
+        D["Visits pages\nautomatically"]
+    end
+    
+    subgraph "📊 Output"
+        E[("Organized\nData")]
+    end
+    
+    A --&gt; D
+    B --&gt; D
+    C --&gt; D
+    D --&gt; E
+    
+    style D fill:#9b59b6,color:#fff
+    style E fill:#27ae60,color:#fff
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">👤 Manual Research</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">🔧 Traditional Scraping</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">🤖 AI-Powered (Our Solution)</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="quarto-layout-panel" data-layout="[30,70]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://media.giphy.com/media/3o7TKRwpns23QMNNiE/giphy.gif" class="img-fluid quarto-figure quarto-figure-center figure-img" width="120"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 70.0%;justify-content: center;">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Aspect</th>
+<th style="text-align: left;">Reality</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Speed</strong></td>
+<td style="text-align: left;">Hours per website</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Scale</strong></td>
+<td style="text-align: left;">Limited by human capacity</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Cost</strong></td>
+<td style="text-align: left;">High (staff time)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Accuracy</strong></td>
+<td style="text-align: left;">Prone to errors</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Sustainability</strong></td>
+<td style="text-align: left;">Not feasible long-term</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="quarto-layout-panel" data-layout="[30,70]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://media.giphy.com/media/ZVik7pBtu9dNS/giphy.gif" class="img-fluid quarto-figure quarto-figure-center figure-img" width="120"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 70.0%;justify-content: center;">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Aspect</th>
+<th style="text-align: left;">Reality</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Speed</strong></td>
+<td style="text-align: left;">Fast, but fragile</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Scale</strong></td>
+<td style="text-align: left;">Breaks when sites change</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Cost</strong></td>
+<td style="text-align: left;">Developer maintenance</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Accuracy</strong></td>
+<td style="text-align: left;">Good until it breaks</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Sustainability</strong></td>
+<td style="text-align: left;">Constant fixes needed</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div class="quarto-layout-panel" data-layout="[30,70]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://media.giphy.com/media/RR32PdmXEwkuzZFKSa/giphy.gif" class="img-fluid quarto-figure quarto-figure-center figure-img" width="120"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 70.0%;justify-content: center;">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Aspect</th>
+<th style="text-align: left;">Reality</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Speed</strong></td>
+<td style="text-align: left;">⚡ Fast &amp; adaptive</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Scale</strong></td>
+<td style="text-align: left;">✅ Handles changes automatically</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Cost</strong></td>
+<td style="text-align: left;">💰 Free (local LLMs)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Accuracy</strong></td>
+<td style="text-align: left;">🎯 Self-correcting</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Sustainability</strong></td>
+<td style="text-align: left;">🔄 Minimal maintenance</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr>
+<div class="callout callout-style-simple callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>💰 Why Competitor Data Matters
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In <strong>parts pricing</strong>, knowing what competitors charge is the difference between winning and losing customers. Without this data, pricing decisions are guesswork.</p>
+</div>
+</div>
+</section>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<section id="complex-structures" class="level3 card quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<h3 class="anchored" data-anchor-id="complex-structures">🏗️ Complex Structures</h3>
+<p>Websites are built differently — no two are alike</p>
+</section>
+<section id="constant-changes" class="level3 card quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<h3 class="anchored" data-anchor-id="constant-changes">🔄 Constant Changes</h3>
+<p>Layouts update frequently, breaking traditional scrapers</p>
+</section>
+<section id="anti-bot-measures" class="level3 card quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<h3 class="anchored" data-anchor-id="anti-bot-measures">🛡️ Anti-Bot Measures</h3>
+<p>Sites actively block automated data collection</p>
+</section>
+</div>
+</div>
+<p>Our team needed competitor prices <strong>at scale</strong>. Instead of expensive APIs or manual research, we built something <strong>simpler, faster, and free</strong> using modern AI tools.</p>
 </section>
 <section id="cambios" class="level1">
 <h1>Cambios</h1>
