@@ -116,7 +116,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td><strong>Web sites</strong></td>
 <td><code>5 (11 planned, more on the way)</code></td>
-<td>2 brands and 3 countries already receiving competitor data</td>
+<td>Subaru and BMW for 3 countries</td>
 </tr>
 <tr class="odd">
 <td><strong>Cost</strong></td>
@@ -355,9 +355,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="cambios" class="level1">
 <h1>Cambios</h1>
 <ul>
-<li>No mencionar todas las páginas sino solo los mercados aprobados (Subaru y BMW de época de Tiger).</li>
-<li>Explicación sencilla de web scraping: definición - (pasante esclavo sacando info, mentiras xd (manual) - librerías como requests o beautiful soup (insostenibilidad) - herramientas modernas LLMs).</li>
-<li>Enfatizar en las dificultades de scrapear - sostenibilidad y escalabilidad</li>
+<li>No mencionar todas las páginas sino solo los mercados aprobados (Subaru y BMW de época de Tiger): listo al inicio, falta al final en la evidencia.</li>
+<li>Explicación sencilla de web scraping: definición - (pasante esclavo sacando info, mentiras xd (manual) - librerías como requests o beautiful soup (insostenibilidad) - herramientas modernas LLMs): LISTO</li>
+<li>Enfatizar en las dificultades de scrapear - sostenibilidad y escalabilidad: LISTO</li>
 <li>Mencionar proxy para reducir tiempos de ejecución - explicación sencilla como el ejemplo de los disfraces. Además posible reducción de costos al bajar la utilización del cluster.</li>
 <li>Simplificar parte de Solution Implementation y todo en general</li>
 <li>Performance metrics al inicio con más métricas.</li>
@@ -401,16 +401,51 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="the-tools" class="level2">
 <h2 class="anchored" data-anchor-id="the-tools">1. The Tools</h2>
-<div class="highlight-box">
-<p>Competitor data is truly valuable. Previously, entire teams would be dedicated to the task, but with this development, a single person can incorporate and keep track of dozens of websites with minimal maintenance. We have implemented a solution that combines <strong>two technology stacks</strong>:</p>
-<p><img src="https://img.shields.io/badge/Crawl4AI-3776AB?style=flat-square&amp;logo=python&amp;logoColor=white.png" class="img-fluid" alt="Crawl4AI"> <img src="https://img.shields.io/badge/Ollama-412991?style=flat-square&amp;logo=ollama&amp;logoColor=white.png" class="img-fluid" alt="Ollama"></p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
-<p><a href="https://github.com/unclecode/crawl4ai">Crawl4AI</a> is an open-source Python library for web crawling and scraping that provides a variety of tools for <strong>AI-ready data extraction</strong>. It enables the extraction of elements from websites using both traditional methods and Large Language Model (LLM) tools.</p>
-<div class="feature-card">
-
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>🎯 One person can now manage dozens of websites with minimal maintenance
 </div>
-<p><br>
-<a href="https://ollama.com/search">Ollama</a> is an open-source tool that simplifies the process of <strong>running LLMs on a local computer</strong>. This means there is no need to pay for an API key, since we can access multiple models as long as our machine can run them. In this case, the Databricks cluster is more than sufficient.</p>
+</div>
+<div class="callout-body-container callout-body">
+<p>Previously, entire teams were dedicated to competitor data collection. Our solution combines <strong>two powerful open-source tools</strong>:</p>
+</div>
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<section id="crawl4ai" class="level3 card quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<h3 class="anchored" data-anchor-id="crawl4ai"><img src="https://img.shields.io/badge/Crawl4AI-3776AB?style=for-the-badge&amp;logo=python&amp;logoColor=white.png" class="img-fluid" alt="Crawl4AI"></h3>
+<p><strong>AI-ready web scraping library</strong></p>
+<ul>
+<li>Extracts data using traditional methods + LLMs</li>
+<li>Handles complex website structures</li>
+<li><a href="https://github.com/unclecode/crawl4ai">GitHub Repository</a></li>
+</ul>
+</section>
+<section id="ollama" class="level3 card quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<h3 class="anchored" data-anchor-id="ollama"><img src="https://img.shields.io/badge/Ollama-412991?style=for-the-badge&amp;logo=ollama&amp;logoColor=white.png" class="img-fluid" alt="Ollama"></h3>
+<p><strong>Run LLMs locally — no API costs</strong></p>
+<ul>
+<li>Free access to powerful AI models</li>
+<li>Runs on our Databricks cluster</li>
+<li><a href="https://ollama.com/search">Browse Models</a></li>
+</ul>
+</section>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Both tools are <strong>open-source</strong>, supported by large communities, and safe for enterprise use.</p>
+</div>
+</div>
+</div>
 <blockquote class="blockquote">
 <p>Both of these tools are supported by a large community and are safe to use.</p>
 </blockquote>

@@ -11,7 +11,7 @@
 | 🎯 **Metric** | 📈 **Value** | 💡 **Impact** |
 |-------------------------|-----------------------|-------------------------|
 | **Automation Rate** | `95%` | Save 15+ hours/week |
-| **Web sites** | `5 (11 planned, more on the way)` | 2 brands and 3 countries already receiving competitor data |
+| **Web sites** | `5 (11 planned, more on the way)` | Subaru and BMW for 3 countries |
 | **Cost** | `0$` | No paid APIs, no proxies |
 | **Compliance** | `100%` | Ethical & legal |
 
@@ -127,9 +127,9 @@ Our team needed competitor prices **at scale**. Instead of expensive APIs or man
 
 # Cambios {#cambios}
 
--   No mencionar todas las páginas sino solo los mercados aprobados (Subaru y BMW de época de Tiger).
--   Explicación sencilla de web scraping: definición - (pasante esclavo sacando info, mentiras xd (manual) - librerías como requests o beautiful soup (insostenibilidad) - herramientas modernas LLMs).
--   Enfatizar en las dificultades de scrapear - sostenibilidad y escalabilidad
+-   No mencionar todas las páginas sino solo los mercados aprobados (Subaru y BMW de época de Tiger): listo al inicio, falta al final en la evidencia.
+-   Explicación sencilla de web scraping: definición - (pasante esclavo sacando info, mentiras xd (manual) - librerías como requests o beautiful soup (insostenibilidad) - herramientas modernas LLMs):  LISTO
+-   Enfatizar en las dificultades de scrapear - sostenibilidad y escalabilidad: LISTO
 -   Mencionar proxy para reducir tiempos de ejecución - explicación sencilla como el ejemplo de los disfraces. Además posible reducción de costos al bajar la utilización del cluster.
 -   Simplificar parte de Solution Implementation y todo en general
 -   Performance metrics al inicio con más métricas.
@@ -165,19 +165,38 @@ Our team needed competitor prices **at scale**. Instead of expensive APIs or man
 
 ## 1. The Tools
 
-::: highlight-box
-Competitor data is truly valuable. Previously, entire teams would be dedicated to the task, but with this development, a single person can incorporate and keep track of dozens of websites with minimal maintenance. We have implemented a solution that combines **two technology stacks**:
-
-![Crawl4AI](https://img.shields.io/badge/Crawl4AI-3776AB?style=flat-square&logo=python&logoColor=white) ![Ollama](https://img.shields.io/badge/Ollama-412991?style=flat-square&logo=ollama&logoColor=white)
+::: {.callout-tip appearance="simple" icon=false}
+## 🎯 One person can now manage dozens of websites with minimal maintenance
+Previously, entire teams were dedicated to competitor data collection. Our solution combines **two powerful open-source tools**:
 :::
 
-[Crawl4AI](https://github.com/unclecode/crawl4ai) is an open-source Python library for web crawling and scraping that provides a variety of tools for **AI-ready data extraction**. It enables the extraction of elements from websites using both traditional methods and Large Language Model (LLM) tools.
+::: {layout-ncol=2}
 
-::: feature-card
+::: {.card}
+### ![Crawl4AI](https://img.shields.io/badge/Crawl4AI-3776AB?style=for-the-badge&logo=python&logoColor=white)
+
+**AI-ready web scraping library**
+
+- Extracts data using traditional methods + LLMs
+- Handles complex website structures
+- [GitHub Repository](https://github.com/unclecode/crawl4ai)
 :::
 
-\
-[Ollama](https://ollama.com/search) is an open-source tool that simplifies the process of **running LLMs on a local computer**. This means there is no need to pay for an API key, since we can access multiple models as long as our machine can run them. In this case, the Databricks cluster is more than sufficient.
+::: {.card}
+### ![Ollama](https://img.shields.io/badge/Ollama-412991?style=for-the-badge&logo=ollama&logoColor=white)
+
+**Run LLMs locally — no API costs**
+
+- Free access to powerful AI models
+- Runs on our Databricks cluster
+- [Browse Models](https://ollama.com/search)
+:::
+
+:::
+
+::: {.callout-note appearance="minimal"}
+Both tools are **open-source**, supported by large communities, and safe for enterprise use.
+:::
 
 > Both of these tools are supported by a large community and are safe to use.
 
