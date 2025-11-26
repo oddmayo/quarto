@@ -597,7 +597,16 @@ As the scraper grows in complexity (more websites, more features), the codebase 
 🎯 **Result:** Fast iterations, minimal hallucinations, and code that actually works with our setup.
 :::
 
-<!-- PLACEHOLDER: Interactive assistant demo will be added here -->
+### 💬 Try it yourself!
+
+Ask the assistant anything about Crawl4AI — how to set up crawlers, extract data, handle errors, and more.
+
+```{=html}
+<iframe src="https://camilo112263.shinyapps.io/crawl4ai-assistant/" 
+        width="100%" height="650px" frameborder="0" 
+        style="border: 1px solid #dee2e6; border-radius: 8px;">
+</iframe>
+```
 
 ## 8. Next Steps
 
