@@ -80,33 +80,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <body class="quarto-light">
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
-<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
-  <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Contents</h2>
-   
-  <ul class="collapse">
-  <li><a href="#web-scraping-of-competitor-data-with-generative-ai" id="toc-web-scraping-of-competitor-data-with-generative-ai" class="nav-link active" data-scroll-target="#web-scraping-of-competitor-data-with-generative-ai">🤖 Web Scraping of Competitor Data with Generative AI</a>
-  <ul class="collapse">
-  <li><a href="#the-tools" id="toc-the-tools" class="nav-link" data-scroll-target="#the-tools">1. The Tools</a></li>
-  <li><a href="#features" id="toc-features" class="nav-link" data-scroll-target="#features">2. Features</a></li>
-  <li><a href="#the-plan" id="toc-the-plan" class="nav-link" data-scroll-target="#the-plan">3. The Plan</a></li>
-  <li><a href="#solution-implementation" id="toc-solution-implementation" class="nav-link" data-scroll-target="#solution-implementation">4. Solution Implementation</a></li>
-  <li><a href="#final-result" id="toc-final-result" class="nav-link" data-scroll-target="#final-result">5. Final Result</a></li>
-  <li><a href="#databricks-job" id="toc-databricks-job" class="nav-link" data-scroll-target="#databricks-job">6. Databricks Job</a></li>
-  <li><a href="#our-own-scraping-ai-assistant" id="toc-our-own-scraping-ai-assistant" class="nav-link" data-scroll-target="#our-own-scraping-ai-assistant">7. Our own scraping AI Assistant</a></li>
-  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">8. Next Steps</a></li>
-  </ul></li>
-  </ul>
-</nav>
-</div>
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
 </div>
 <main class="content" id="quarto-document-content">
 
 
 
-
+<nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">📑 Table of Contents</h2>
+   
+  <ul>
+  <li><a href="#web-scraping-of-competitor-data-with-generative-ai" id="toc-web-scraping-of-competitor-data-with-generative-ai">🤖 Web Scraping of Competitor Data with Generative AI</a>
+  <ul>
+  <li><a href="#the-tools" id="toc-the-tools">1. The Tools</a></li>
+  <li><a href="#features" id="toc-features">2. Features</a></li>
+  <li><a href="#the-plan" id="toc-the-plan">3. The Plan</a></li>
+  <li><a href="#solution-implementation" id="toc-solution-implementation">4. Solution Implementation</a></li>
+  <li><a href="#final-result" id="toc-final-result">5. Final Result</a></li>
+  <li><a href="#databricks-job" id="toc-databricks-job">6. Databricks Job</a></li>
+  <li><a href="#our-own-scraping-ai-assistant" id="toc-our-own-scraping-ai-assistant">7. Our own scraping AI Assistant</a></li>
+  <li><a href="#next-steps" id="toc-next-steps">8. Next Steps</a></li>
+  </ul></li>
+  </ul>
+</nav>
 <section id="web-scraping-of-competitor-data-with-generative-ai" class="level1">
 <h1>🤖 Web Scraping of Competitor Data with Generative AI</h1>
 <div data-align="center">
@@ -795,7 +792,7 @@ Location: Azure Delta Lake</code></pre>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    var map = L.map('map').setView([-15, -65], 3);
+    var map = L.map('map').setView([10, -20], 2);
     
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap'
@@ -815,9 +812,24 @@ document.addEventListener('DOMContentLoaded', function() {
         iconAnchor: [30, 10]
     });
     
+    var dercoIcon = L.divIcon({
+        className: 'custom-div-icon',
+        html: "<div style='background-color:#E31837;color:white;padding:5px 10px;border-radius:5px;font-weight:bold;font-size:12px;'>Derco</div>",
+        iconSize: [55, 20],
+        iconAnchor: [27, 10]
+    });
+    
+    var toyotaIcon = L.divIcon({
+        className: 'custom-div-icon',
+        html: "<div style='background-color:#EB0A1E;color:white;padding:5px 10px;border-radius:5px;font-weight:bold;font-size:12px;'>Toyota</div>",
+        iconSize: [55, 20],
+        iconAnchor: [27, 10]
+    });
+    
     // Chile - Both brands
     L.marker([-33.45, -71.5], {icon: bmwIcon}).addTo(map).bindPopup('<b>🇨🇱 Chile</b><br>BMW: 4 websites');
     L.marker([-35.5, -71.5], {icon: subaruIcon}).addTo(map).bindPopup('<b>🇨🇱 Chile</b><br>Subaru: 1 website');
+    L.marker([-32.0, -71.5], {icon: dercoIcon}).addTo(map).bindPopup('<b>🇨🇱 Chile</b><br>Derco: 1 mystery shopper');
     
     // Peru - Both brands  
     L.marker([-12.05, -78.0], {icon: bmwIcon}).addTo(map).bindPopup('<b>🇵🇪 Peru</b><br>4 websites');
@@ -825,15 +837,24 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Colombia - Subaru only
     L.marker([4.7, -74.07], {icon: subaruIcon}).addTo(map).bindPopup('<b>🇨🇴 Colombia</b><br>1 website');
+    
+    // Bulgaria - Toyota
+    L.marker([42.7, 25.5], {icon: toyotaIcon}).addTo(map).bindPopup('<b>🇧🇬 Bulgaria</b><br>Toyota: 3 websites');
 });
 </script>
-<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-panel" data-layout-ncol="4">
 <div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
 <p><img src="https://img.shields.io/badge/BMW-Chile_&amp;_Peru-0066b1?style=flat-square&amp;logo=bmw&amp;logoColor=white.png" class="img-fluid"></p>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
 <p><img src="https://img.shields.io/badge/Subaru-Chile,_Peru_&amp;_Colombia-013C74?style=flat-square&amp;logo=subaru&amp;logoColor=white.png" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
+<p><img src="https://img.shields.io/badge/Derco-Chile-E31837?style=flat-square&amp;logoColor=white.png" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
+<p><img src="https://img.shields.io/badge/Toyota-Bulgaria-EB0A1E?style=flat-square&amp;logo=toyota&amp;logoColor=white.png" class="img-fluid"></p>
 </div>
 </div>
 </div>
@@ -1060,9 +1081,76 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <section id="try-it-yourself" class="level3">
 <h3 class="anchored" data-anchor-id="try-it-yourself">💬 Try it yourself!</h3>
-<p>Ask the assistant anything about Crawl4AI — how to set up crawlers, extract data, handle errors, and more.</p>
-<iframe src="https://camilo112263.shinyapps.io/crawl4ai-assistant/" width="100%" height="650px" frameborder="0" style="border: 1px solid #dee2e6; border-radius: 8px;">
+<p>Ask the assistant anything about Crawl4AI — how to set up crawlers, extract data, handle errors, and more. The first question takes about 5 seconds, after that responses are quicker.</p>
+<iframe src="https://camilo112263.shinyapps.io/crawl4ai-assistant/" width="100%" height="750px" frameborder="0" style="border: 1px solid #dee2e6; border-radius: 8px;">
 </iframe>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>🔧 How the Assistant Works (click to expand)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The assistant uses <strong>Retrieval-Augmented Generation (RAG)</strong> to answer questions about Crawl4AI with high accuracy.</p>
+<p><strong>Tech Stack:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Tool</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>🧠 <strong>LLM</strong></td>
+<td>Google Gemini 2.5 Flash</td>
+<td>Fast, accurate responses</td>
+</tr>
+<tr class="even">
+<td>📊 <strong>Embeddings</strong></td>
+<td>HuggingFace BGE</td>
+<td>Convert text to vectors</td>
+</tr>
+<tr class="odd">
+<td>🔍 <strong>Vector Store</strong></td>
+<td>LlamaIndex</td>
+<td>Semantic search over code</td>
+</tr>
+<tr class="even">
+<td>📦 <strong>Data Ingestion</strong></td>
+<td>GitIngest</td>
+<td>Fetch entire GitHub repos</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pipeline:</strong> GitHub Repo → GitIngest → Vector Embeddings → LlamaIndex Store → Query Engine → AI Response</p>
+<p><strong>Key steps:</strong></p>
+<ol type="1">
+<li><strong>Ingest</strong> — Fetch the entire Crawl4AI repository using GitIngest</li>
+<li><strong>Embed</strong> — Convert code and docs into vector embeddings (BGE model)</li>
+<li><strong>Index</strong> — Store vectors in a persistent LlamaIndex for fast retrieval</li>
+<li><strong>Query</strong> — User questions retrieve relevant context, then Gemini generates answers</li>
+</ol>
+<p><strong>Custom prompt template</strong> ensures step-by-step answers with code snippets when relevant.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>💡 <strong>What’s next?</strong> This assistant was built <em>before</em> we had access to <strong>GitHub Copilot</strong>. Now with Copilot in the IDE, we can feed it any context directly — making development even faster and more seamless.</p>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="next-steps" class="level2">

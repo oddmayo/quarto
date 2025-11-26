@@ -3,9 +3,9 @@ title: ""
 format:
   html:
     toc: true
-    toc-location: left
+    toc-location: body
     toc-depth: 2
-    toc-title: "Contents"
+    toc-title: "📑 Table of Contents"
     smooth-scroll: true
 ---
 
@@ -408,7 +408,7 @@ Full columns: `MANU_MATNR`, `oem_name`, `product_hierarchy`, `list_price`, `sale
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    var map = L.map('map').setView([-15, -65], 3);
+    var map = L.map('map').setView([10, -20], 2);
     
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap'
@@ -428,9 +428,24 @@ document.addEventListener('DOMContentLoaded', function() {
         iconAnchor: [30, 10]
     });
     
+    var dercoIcon = L.divIcon({
+        className: 'custom-div-icon',
+        html: "<div style='background-color:#E31837;color:white;padding:5px 10px;border-radius:5px;font-weight:bold;font-size:12px;'>Derco</div>",
+        iconSize: [55, 20],
+        iconAnchor: [27, 10]
+    });
+    
+    var toyotaIcon = L.divIcon({
+        className: 'custom-div-icon',
+        html: "<div style='background-color:#EB0A1E;color:white;padding:5px 10px;border-radius:5px;font-weight:bold;font-size:12px;'>Toyota</div>",
+        iconSize: [55, 20],
+        iconAnchor: [27, 10]
+    });
+    
     // Chile - Both brands
     L.marker([-33.45, -71.5], {icon: bmwIcon}).addTo(map).bindPopup('<b>🇨🇱 Chile</b><br>BMW: 4 websites');
     L.marker([-35.5, -71.5], {icon: subaruIcon}).addTo(map).bindPopup('<b>🇨🇱 Chile</b><br>Subaru: 1 website');
+    L.marker([-32.0, -71.5], {icon: dercoIcon}).addTo(map).bindPopup('<b>🇨🇱 Chile</b><br>Derco: 1 mystery shopper');
     
     // Peru - Both brands  
     L.marker([-12.05, -78.0], {icon: bmwIcon}).addTo(map).bindPopup('<b>🇵🇪 Peru</b><br>4 websites');
@@ -438,16 +453,25 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Colombia - Subaru only
     L.marker([4.7, -74.07], {icon: subaruIcon}).addTo(map).bindPopup('<b>🇨🇴 Colombia</b><br>1 website');
+    
+    // Bulgaria - Toyota
+    L.marker([42.7, 25.5], {icon: toyotaIcon}).addTo(map).bindPopup('<b>🇧🇬 Bulgaria</b><br>Toyota: 3 websites');
 });
 </script>
 ```
 
-::: {layout-ncol=2}
+::: {layout-ncol=4}
 ::: {}
 ![](https://img.shields.io/badge/BMW-Chile_&_Peru-0066b1?style=flat-square&logo=bmw&logoColor=white)
 :::
 ::: {}
 ![](https://img.shields.io/badge/Subaru-Chile,_Peru_&_Colombia-013C74?style=flat-square&logo=subaru&logoColor=white)
+:::
+::: {}
+![](https://img.shields.io/badge/Derco-Chile-E31837?style=flat-square&logoColor=white)
+:::
+::: {}
+![](https://img.shields.io/badge/Toyota-Bulgaria-EB0A1E?style=flat-square&logo=toyota&logoColor=white)
 :::
 :::
 
@@ -597,14 +621,44 @@ As the scraper grows in complexity (more websites, more features), the codebase 
 
 ### 💬 Try it yourself!
 
-Ask the assistant anything about Crawl4AI — how to set up crawlers, extract data, handle errors, and more.
+Ask the assistant anything about Crawl4AI — how to set up crawlers, extract data, handle errors, and more. The first question takes about 5 seconds, after that responses are quicker.
 
 ```{=html}
 <iframe src="https://camilo112263.shinyapps.io/crawl4ai-assistant/" 
-        width="100%" height="650px" frameborder="0" 
+        width="100%" height="750px" frameborder="0" 
         style="border: 1px solid #dee2e6; border-radius: 8px;">
 </iframe>
 ```
+
+::: {.callout-note collapse="true"}
+## 🔧 How the Assistant Works (click to expand)
+
+The assistant uses **Retrieval-Augmented Generation (RAG)** to answer questions about Crawl4AI with high accuracy.
+
+**Tech Stack:**
+
+| Component | Tool | Purpose |
+|-----------|------|---------|
+| 🧠 **LLM** | Google Gemini 2.5 Flash | Fast, accurate responses |
+| 📊 **Embeddings** | HuggingFace BGE | Convert text to vectors |
+| 🔍 **Vector Store** | LlamaIndex | Semantic search over code |
+| 📦 **Data Ingestion** | GitIngest | Fetch entire GitHub repos |
+
+**Pipeline:** GitHub Repo → GitIngest → Vector Embeddings → LlamaIndex Store → Query Engine → AI Response
+
+**Key steps:**
+
+1. **Ingest** — Fetch the entire Crawl4AI repository using GitIngest
+2. **Embed** — Convert code and docs into vector embeddings (BGE model)
+3. **Index** — Store vectors in a persistent LlamaIndex for fast retrieval
+4. **Query** — User questions retrieve relevant context, then Gemini generates answers
+
+**Custom prompt template** ensures step-by-step answers with code snippets when relevant.
+:::
+
+::: {.callout-tip appearance="minimal" icon=false}
+💡 **What's next?** This assistant was built *before* we had access to **GitHub Copilot**. Now with Copilot in the IDE, we can feed it any context directly — making development even faster and more seamless.
+:::
 
 ## 8. Next Steps
 
