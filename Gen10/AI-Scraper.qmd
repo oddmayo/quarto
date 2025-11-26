@@ -1,3 +1,14 @@
+---
+title: ""
+format:
+  html:
+    toc: true
+    toc-location: left
+    toc-depth: 2
+    toc-title: "Contents"
+    smooth-scroll: true
+---
+
 # 🤖 Web Scraping of Competitor Data with Generative AI
 
 ::: {align="center"}
@@ -131,8 +142,6 @@ Our team needed competitor prices **at scale**. Instead of expensive APIs or man
 
 
 
-# Cambios {#cambios}
-
 -   No mencionar todas las páginas sino solo los mercados aprobados (Subaru y BMW de época de Tiger): listo al inicio, falta al final en la evidencia.
 -   Explicación sencilla de web scraping: definición - (pasante esclavo sacando info, mentiras xd (manual) - librerías como requests o beautiful soup (insostenibilidad) - herramientas modernas LLMs):  LISTO
 -   Enfatizar en las dificultades de scrapear - sostenibilidad y escalabilidad: LISTO
@@ -140,32 +149,6 @@ Our team needed competitor prices **at scale**. Instead of expensive APIs or man
 -   Simplificar parte de Solution Implementation y todo en general
 -   Performance metrics al inicio con más métricas.
 -   Agregar más grafiquitos.
-
-------------------------------------------------------------------------
-
-## Table of Contents {#table-of-contents}
-
--   [🤖 Web Scraping of Competitor Data with Generative AI](#-web-scraping-of-competitor-data-with-generative-ai)
-    -   [**Problem Statement**](#problem-statement)
-    -   [**Performance Metrics**](#performance-metrics)
--   [Cambios](#cambios)
-    -   [Table of Contents](#table-of-contents)
-    -   [1. The Tools](#1-the-tools)
-    -   [2. Features](#2-features)
-    -   [3. The Plan](#3-the-plan)
-    -   [4. Solution Implementation](#4-solution-implementation)
-        -   [4.1 Setup](#41-setup)
-        -   [4.2 Databricks Workspace](#42-databricks-workspace)
-            -   [4.2.1 *oem_codes*](#421-oem_codes)
-            -   [4.2.2 *scraper_calls*](#422-scraper_calls)
-            -   [4.2.3 *markets*](#423-markets)
-            -   [4.2.4 *mystery shopper and third party scrapper*](#424-mystery-shopper-and-third-party-scrapper)
-        -   [4.3 AI scrapper logic](#43-ai-scrapper-logic)
-        -   [4.4 AI scrapper class](#44-ai-scrapper-class)
-    -   [5. Final table](#5-final-table)
-    -   [6. Databricks Job](#6-databricks-job)
-    -   [7. Our own scraping AI Assistant](#7-our-own-scraping-ai-assistant)
-    -   [8. Next Steps](#8-next-steps)
 
 ------------------------------------------------------------------------
 
@@ -377,7 +360,7 @@ ollama pull qwen2.5:3b                            # Download AI model
 
 
 
-## 5. Final Table
+## 5. Final Result
 
 ::: {.callout-tip appearance="simple" icon=false}
 ## 📊 One Table to Rule Them All
@@ -413,6 +396,57 @@ Date & source
 |-----------|-----------|------------|------------|------------|---------|
 | 806750050 | Transmission Oil Pump Seal | $9.87 | $7.81 | subaruparts.com | Chile 🇨🇱 |
 
+### 🗺️ Geographic Coverage
+
+```{=html}
+<div id="map" style="height: 400px; width: 100%; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);"></div>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var map = L.map('map').setView([-15, -65], 3);
+    
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap'
+    }).addTo(map);
+    
+    var bmwIcon = L.divIcon({
+        className: 'custom-div-icon',
+        html: "<div style='background-color:#0066b1;color:white;padding:5px 10px;border-radius:5px;font-weight:bold;font-size:12px;'>BMW</div>",
+        iconSize: [50, 20],
+        iconAnchor: [25, 10]
+    });
+    
+    var subaruIcon = L.divIcon({
+        className: 'custom-div-icon',
+        html: "<div style='background-color:#013C74;color:white;padding:5px 10px;border-radius:5px;font-weight:bold;font-size:12px;'>Subaru</div>",
+        iconSize: [60, 20],
+        iconAnchor: [30, 10]
+    });
+    
+    // Chile - Both brands
+    L.marker([-33.45, -71.5], {icon: bmwIcon}).addTo(map).bindPopup('<b>🇨🇱 Chile</b><br>BMW: 4 websites');
+    L.marker([-35.5, -71.5], {icon: subaruIcon}).addTo(map).bindPopup('<b>🇨🇱 Chile</b><br>Subaru: 1 website');
+    
+    // Peru - Both brands  
+    L.marker([-12.05, -78.0], {icon: bmwIcon}).addTo(map).bindPopup('<b>🇵🇪 Peru</b><br>4 websites');
+    L.marker([-14.0, -76.0], {icon: subaruIcon}).addTo(map).bindPopup('<b>🇵🇪 Peru</b><br>1 website');
+    
+    // Colombia - Subaru only
+    L.marker([4.7, -74.07], {icon: subaruIcon}).addTo(map).bindPopup('<b>🇨🇴 Colombia</b><br>1 website');
+});
+</script>
+```
+
+::: {layout-ncol=2}
+::: {}
+![](https://img.shields.io/badge/BMW-Chile_&_Peru-0066b1?style=flat-square&logo=bmw&logoColor=white)
+:::
+::: {}
+![](https://img.shields.io/badge/Subaru-Chile,_Peru_&_Colombia-013C74?style=flat-square&logo=subaru&logoColor=white)
+:::
+:::
+
 ::: {.callout-note collapse="true"}
 ## 📍 Table Location (click to expand)
 ```
@@ -423,19 +457,120 @@ Full columns: `MANU_MATNR`, `oem_name`, `product_hierarchy`, `list_price`, `sale
 
 ## 6. Databricks Job
 
-This scraping process runs automatically once a month via a scheduled job. The **11 current webpages** are as follows:
+::: {.callout-success appearance="simple" icon=false}
+### ✅ It's Live and Running!
+The scraper runs **automatically every month** via a scheduled Databricks job — no manual intervention needed (except for a few tweaks).
+:::
 
-<img src="img/job_webpages.png" width="500"/>
+### Latest Run Stats
 
-\
-The latest run took 106 hours — just over **four days**. Not bad, considering we made requests at prudent intervals and did not use a proxy for almost 100,000 parts in total. We've been making steady improvements each week.
+::: {layout-ncol=3}
+::: {.card style="text-align: center;"}
+### ⏱️ Runtime
+**~4 days**
+106 hours (parallel)
+:::
+::: {.card style="text-align: center;"}
+### 🔢 Parts Scraped
+**~100,000**
+Across all websites
+:::
+::: {.card style="text-align: center;"}
+### 🌐 Websites
+**5 active**
+(11 planned)
+:::
+:::
 
-\
-<img src="img/job_time.png" width="500"/>
+::: {layout-ncol=2}
+::: {}
+**Websites being scraped sample:**
 
-We have a **scraping priority**: we use the parts segmentation table to first scrape the parts with AA priority, then AB, then BA, and so on.
+<img src="img/job_webpages.png" width="100%"/>
 
-If an error occurs during execution, the scrapper is provided with a **checkpoint capability**. In that case, all progress is saved, and the ability to resume makes it easy to continue from the last OEM part scraped.
+![BMW](https://img.shields.io/badge/BMW-4_sites-0066b1?style=flat-square&logo=bmw&logoColor=white) ![Subaru](https://img.shields.io/badge/Subaru-1_site-013C74?style=flat-square&logo=subaru&logoColor=white)
+
+::: {.callout-note collapse="true" appearance="minimal"}
+## View website list
+**BMW:** bmwdirectparts.com, bmwpartshub.com, getbmwparts.com, parts.bramanmotorsbmw.com
+
+**Subaru:** subaruparts.com
+:::
+:::
+::: {}
+**Execution timeline:**
+
+<img src="img/job_time.png" width="100%"/>
+:::
+:::
+
+### Built-in Reliability
+
+| Feature | What it does |
+|---------|--------------|
+| 🔄 **Parallel Execution** | All scrapers run simultaneously — adding more sites doesn't increase runtime |
+| 🎯 **Smart Priority** | Scrapes high-value parts first (AA → AB → BA...) |
+| 💾 **Checkpoint System** | Saves progress — resumes from last part if interrupted |
+| 🐢 **Ethical Pacing** | Requests at respectful intervals (no proxies needed) |
+
+### 🎭 Next Optimization: Proxies
+
+::: {.callout-tip appearance="simple" icon=false}
+🚀 **What if?** Proxy rotation could reduce execution time by 5-10x and significantly lower cluster costs.
+:::
+
+<details>
+<summary>📖 **Learn more about proxies and cost savings**</summary>
+
+::: {.callout-tip appearance="simple" icon=false}
+## What is a proxy?
+Think of it like wearing **different disguises** 🥸 — instead of always showing your real identity (IP address), you rotate through many identities so websites don't recognize you're the same visitor.
+:::
+
+**Why this matters for us:**
+
+```{mermaid}
+%%| fig-width: 7
+flowchart LR
+    subgraph NOW ["⏱️ Current Setup"]
+        A[1 request] --> B[Wait 2-5 sec]
+        B --> C[Next request]
+    end
+    
+    subgraph PROXY ["🚀 With Proxies"]
+        D[Request via IP #1]
+        E[Request via IP #2]
+        F[Request via IP #3]
+        D --> G[No waiting needed!]
+        E --> G
+        F --> G
+    end
+    
+    style NOW fill:#fff3e0,stroke:#ff9800,color:#333
+    style PROXY fill:#e8f5e9,stroke:#388e3c,color:#333
+    style G fill:#27ae60,color:#fff
+```
+
+::: {layout-ncol=2}
+::: {.card}
+#### ⚡ Faster Execution
+- No need to wait between requests
+- Multiple requests simultaneously
+- **Potential 5-10x speed improvement**
+:::
+::: {.card}
+#### 💰 Lower Costs
+- Less cluster runtime = lower compute costs
+- Job finishes in hours instead of days
+- **Significant DBU savings**
+:::
+:::
+
+::: {.callout-note appearance="minimal"}
+📋 **Status:** Planned optimization — evaluating proxy providers for enterprise compliance.
+:::
+
+</details>
 
 ## 7. Our own scraping AI Assistant
 

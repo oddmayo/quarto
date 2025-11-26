@@ -70,6 +70,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="AI-Scraper_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="AI-Scraper_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="AI-Scraper_files/libs/bootstrap/bootstrap-21c39143584bebe83cb500300cd07cbb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<style>html{ scroll-behavior: smooth; }</style>
 <script src="AI-Scraper_files/libs/quarto-diagram/mermaid.min.js"></script>
 <script src="AI-Scraper_files/libs/quarto-diagram/mermaid-init.js"></script>
 <link href="AI-Scraper_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
@@ -77,10 +78,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="fullcontent quarto-light">
+<body class="quarto-light">
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#web-scraping-of-competitor-data-with-generative-ai" id="toc-web-scraping-of-competitor-data-with-generative-ai" class="nav-link active" data-scroll-target="#web-scraping-of-competitor-data-with-generative-ai">🤖 Web Scraping of Competitor Data with Generative AI</a>
+  <ul class="collapse">
+  <li><a href="#the-tools" id="toc-the-tools" class="nav-link" data-scroll-target="#the-tools">1. The Tools</a></li>
+  <li><a href="#features" id="toc-features" class="nav-link" data-scroll-target="#features">2. Features</a></li>
+  <li><a href="#the-plan" id="toc-the-plan" class="nav-link" data-scroll-target="#the-plan">3. The Plan</a></li>
+  <li><a href="#solution-implementation" id="toc-solution-implementation" class="nav-link" data-scroll-target="#solution-implementation">4. Solution Implementation</a></li>
+  <li><a href="#final-result" id="toc-final-result" class="nav-link" data-scroll-target="#final-result">5. Final Result</a></li>
+  <li><a href="#databricks-job" id="toc-databricks-job" class="nav-link" data-scroll-target="#databricks-job">6. Databricks Job</a></li>
+  <li><a href="#our-own-scraping-ai-assistant" id="toc-our-own-scraping-ai-assistant" class="nav-link" data-scroll-target="#our-own-scraping-ai-assistant">7. Our own scraping AI Assistant</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">8. Next Steps</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+</div>
 <main class="content" id="quarto-document-content">
 
 
@@ -357,9 +378,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Our team needed competitor prices <strong>at scale</strong>. Instead of expensive APIs or manual research, we built something <strong>simpler, faster, and free</strong> using modern AI tools.</p>
-</section>
-<section id="cambios" class="level1">
-<h1>Cambios</h1>
 <ul>
 <li>No mencionar todas las páginas sino solo los mercados aprobados (Subaru y BMW de época de Tiger): listo al inicio, falta al final en la evidencia.</li>
 <li>Explicación sencilla de web scraping: definición - (pasante esclavo sacando info, mentiras xd (manual) - librerías como requests o beautiful soup (insostenibilidad) - herramientas modernas LLMs): LISTO</li>
@@ -370,41 +388,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Agregar más grafiquitos.</li>
 </ul>
 <hr>
-<section id="table-of-contents" class="level2">
-<h2 class="anchored" data-anchor-id="table-of-contents">Table of Contents</h2>
-<ul>
-<li><a href="#-web-scraping-of-competitor-data-with-generative-ai">🤖 Web Scraping of Competitor Data with Generative AI</a>
-<ul>
-<li><a href="#problem-statement"><strong>Problem Statement</strong></a></li>
-<li><a href="#performance-metrics"><strong>Performance Metrics</strong></a></li>
-</ul></li>
-<li><a href="#cambios">Cambios</a>
-<ul>
-<li><a href="#table-of-contents">Table of Contents</a></li>
-<li><a href="#1-the-tools">1. The Tools</a></li>
-<li><a href="#2-features">2. Features</a></li>
-<li><a href="#3-the-plan">3. The Plan</a></li>
-<li><a href="#4-solution-implementation">4. Solution Implementation</a>
-<ul>
-<li><a href="#41-setup">4.1 Setup</a></li>
-<li><a href="#42-databricks-workspace">4.2 Databricks Workspace</a>
-<ul>
-<li><a href="#421-oem_codes">4.2.1 <em>oem_codes</em></a></li>
-<li><a href="#422-scraper_calls">4.2.2 <em>scraper_calls</em></a></li>
-<li><a href="#423-markets">4.2.3 <em>markets</em></a></li>
-<li><a href="#424-mystery-shopper-and-third-party-scrapper">4.2.4 <em>mystery shopper and third party scrapper</em></a></li>
-</ul></li>
-<li><a href="#43-ai-scrapper-logic">4.3 AI scrapper logic</a></li>
-<li><a href="#44-ai-scrapper-class">4.4 AI scrapper class</a></li>
-</ul></li>
-<li><a href="#5-final-table">5. Final table</a></li>
-<li><a href="#6-databricks-job">6. Databricks Job</a></li>
-<li><a href="#7-our-own-scraping-ai-assistant">7. Our own scraping AI Assistant</a></li>
-<li><a href="#8-next-steps">8. Next Steps</a></li>
-</ul></li>
-</ul>
-<hr>
-</section>
 <section id="the-tools" class="level2">
 <h2 class="anchored" data-anchor-id="the-tools">1. The Tools</h2>
 <div class="callout callout-style-simple callout-tip no-icon callout-titled">
@@ -718,8 +701,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="final-table" class="level2">
-<h2 class="anchored" data-anchor-id="final-table">5. Final Table</h2>
+<section id="final-result" class="level2">
+<h2 class="anchored" data-anchor-id="final-result">5. Final Result</h2>
 <div class="callout callout-style-simple callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -784,6 +767,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
+<section id="geographic-coverage" class="level3">
+<h3 class="anchored" data-anchor-id="geographic-coverage">🗺️ Geographic Coverage</h3>
+<div id="map" style="height: 400px; width: 100%; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);"></div>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var map = L.map('map').setView([-15, -65], 3);
+    
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap'
+    }).addTo(map);
+    
+    var bmwIcon = L.divIcon({
+        className: 'custom-div-icon',
+        html: "<div style='background-color:#0066b1;color:white;padding:5px 10px;border-radius:5px;font-weight:bold;font-size:12px;'>BMW</div>",
+        iconSize: [50, 20],
+        iconAnchor: [25, 10]
+    });
+    
+    var subaruIcon = L.divIcon({
+        className: 'custom-div-icon',
+        html: "<div style='background-color:#013C74;color:white;padding:5px 10px;border-radius:5px;font-weight:bold;font-size:12px;'>Subaru</div>",
+        iconSize: [60, 20],
+        iconAnchor: [30, 10]
+    });
+    
+    // Chile - Both brands
+    L.marker([-33.45, -71.5], {icon: bmwIcon}).addTo(map).bindPopup('<b>🇨🇱 Chile</b><br>BMW: 4 websites');
+    L.marker([-35.5, -71.5], {icon: subaruIcon}).addTo(map).bindPopup('<b>🇨🇱 Chile</b><br>Subaru: 1 website');
+    
+    // Peru - Both brands  
+    L.marker([-12.05, -78.0], {icon: bmwIcon}).addTo(map).bindPopup('<b>🇵🇪 Peru</b><br>4 websites');
+    L.marker([-14.0, -76.0], {icon: subaruIcon}).addTo(map).bindPopup('<b>🇵🇪 Peru</b><br>1 website');
+    
+    // Colombia - Subaru only
+    L.marker([4.7, -74.07], {icon: subaruIcon}).addTo(map).bindPopup('<b>🇨🇴 Colombia</b><br>1 website');
+});
+</script>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="https://img.shields.io/badge/BMW-Chile_&amp;_Peru-0066b1?style=flat-square&amp;logo=bmw&amp;logoColor=white.png" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="https://img.shields.io/badge/Subaru-Chile,_Peru_&amp;_Colombia-013C74?style=flat-square&amp;logo=subaru&amp;logoColor=white.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -802,16 +834,186 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
+</section>
 <section id="databricks-job" class="level2">
 <h2 class="anchored" data-anchor-id="databricks-job">6. Databricks Job</h2>
-<p>This scraping process runs automatically once a month via a scheduled job. The <strong>11 current webpages</strong> are as follows:</p>
-<p><img src="img/job_webpages.png" width="500"></p>
-<p><br>
-The latest run took 106 hours — just over <strong>four days</strong>. Not bad, considering we made requests at prudent intervals and did not use a proxy for almost 100,000 parts in total. We’ve been making steady improvements each week.</p>
-<p><br>
-<img src="img/job_time.png" width="500"></p>
-<p>We have a <strong>scraping priority</strong>: we use the parts segmentation table to first scrape the parts with AA priority, then AB, then BA, and so on.</p>
-<p>If an error occurs during execution, the scrapper is provided with a <strong>checkpoint capability</strong>. In that case, all progress is saved, and the ability to resume makes it easy to continue from the last OEM part scraped.</p>
+<section id="its-live-and-running" class="level3 callout-success" data-appearance="simple" data-icon="false">
+<h3 class="anchored" data-anchor-id="its-live-and-running">✅ It’s Live and Running!</h3>
+<p>The scraper runs <strong>automatically every month</strong> via a scheduled Databricks job — no manual intervention needed (except for a few tweaks).</p>
+</section>
+<section id="latest-run-stats" class="level3">
+<h3 class="anchored" data-anchor-id="latest-run-stats">Latest Run Stats</h3>
+</section>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<section id="runtime" class="level3 card quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<h3 class="anchored" data-anchor-id="runtime">⏱️ Runtime</h3>
+<p><strong>~4 days</strong> 106 hours (parallel)</p>
+</section>
+<section id="parts-scraped" class="level3 card quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<h3 class="anchored" data-anchor-id="parts-scraped">🔢 Parts Scraped</h3>
+<p><strong>~100,000</strong> Across all websites</p>
+</section>
+<section id="websites" class="level3 card quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<h3 class="anchored" data-anchor-id="websites">🌐 Websites</h3>
+<p><strong>5 active</strong> (11 planned)</p>
+</section>
+</div>
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><strong>Websites being scraped sample:</strong></p>
+<p><img src="img/job_webpages.png" width="100%"></p>
+<p><img src="https://img.shields.io/badge/BMW-4_sites-0066b1?style=flat-square&amp;logo=bmw&amp;logoColor=white.png" class="img-fluid" alt="BMW"> <img src="https://img.shields.io/badge/Subaru-1_site-013C74?style=flat-square&amp;logo=subaru&amp;logoColor=white.png" class="img-fluid" alt="Subaru"></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>View website list
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>BMW:</strong> bmwdirectparts.com, bmwpartshub.com, getbmwparts.com, parts.bramanmotorsbmw.com</p>
+<p><strong>Subaru:</strong> subaruparts.com</p>
+</div>
+</div>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><strong>Execution timeline:</strong></p>
+<p><img src="img/job_time.png" width="100%"></p>
+</div>
+</div>
+</div>
+<section id="built-in-reliability" class="level3">
+<h3 class="anchored" data-anchor-id="built-in-reliability">Built-in Reliability</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 39%">
+<col style="width: 60%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>🔄 <strong>Parallel Execution</strong></td>
+<td>All scrapers run simultaneously — adding more sites doesn’t increase runtime</td>
+</tr>
+<tr class="even">
+<td>🎯 <strong>Smart Priority</strong></td>
+<td>Scrapes high-value parts first (AA → AB → BA…)</td>
+</tr>
+<tr class="odd">
+<td>💾 <strong>Checkpoint System</strong></td>
+<td>Saves progress — resumes from last part if interrupted</td>
+</tr>
+<tr class="even">
+<td>🐢 <strong>Ethical Pacing</strong></td>
+<td>Requests at respectful intervals (no proxies needed)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="next-optimization-proxies" class="level3">
+<h3 class="anchored" data-anchor-id="next-optimization-proxies">🎭 Next Optimization: Proxies</h3>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>🚀 <strong>What if?</strong> Proxy rotation could reduce execution time by 5-10x and significantly lower cluster costs.</p>
+</div>
+</div>
+</div>
+<details>
+<summary>
+📖 <strong>Learn more about proxies and cost savings</strong>
+</summary>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>What is a proxy?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Think of it like wearing <strong>different disguises</strong> 🥸 — instead of always showing your real identity (IP address), you rotate through many identities so websites don’t recognize you’re the same visitor.</p>
+</div>
+</div>
+<p><strong>Why this matters for us:</strong></p>
+<div class="cell" data-fig-width="7" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    subgraph NOW ["⏱️ Current Setup"]
+        A[1 request] --&gt; B[Wait 2-5 sec]
+        B --&gt; C[Next request]
+    end
+    
+    subgraph PROXY ["🚀 With Proxies"]
+        D[Request via IP #1]
+        E[Request via IP #2]
+        F[Request via IP #3]
+        D --&gt; G[No waiting needed!]
+        E --&gt; G
+        F --&gt; G
+    end
+    
+    style NOW fill:#fff3e0,stroke:#ff9800,color:#333
+    style PROXY fill:#e8f5e9,stroke:#388e3c,color:#333
+    style G fill:#27ae60,color:#fff
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<section id="faster-execution" class="level4 card quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<h4 class="anchored" data-anchor-id="faster-execution">⚡ Faster Execution</h4>
+<ul>
+<li>No need to wait between requests</li>
+<li>Multiple requests simultaneously</li>
+<li><strong>Potential 5-10x speed improvement</strong></li>
+</ul>
+</section>
+<section id="lower-costs" class="level4 card quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<h4 class="anchored" data-anchor-id="lower-costs">💰 Lower Costs</h4>
+<ul>
+<li>Less cluster runtime = lower compute costs</li>
+<li>Job finishes in hours instead of days</li>
+<li><strong>Significant DBU savings</strong></li>
+</ul>
+</section>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>📋 <strong>Status:</strong> Planned optimization — evaluating proxy providers for enterprise compliance.</p>
+</div>
+</div>
+</div>
+</details>
+</section>
 </section>
 <section id="our-own-scraping-ai-assistant" class="level2">
 <h2 class="anchored" data-anchor-id="our-own-scraping-ai-assistant">7. Our own scraping AI Assistant</h2>
@@ -1273,4 +1475,5 @@ urls_to_crawl = [
 
 
 
+<script src="AI-Scraper_files/libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
