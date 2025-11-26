@@ -885,7 +885,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<p><strong>Execution timeline:</strong></p>
+<p><strong>Execution time:</strong></p>
 <p><img src="img/job_time.png" width="100%"></p>
 </div>
 </div>
@@ -997,7 +997,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <ul>
 <li>Less cluster runtime = lower compute costs</li>
 <li>Job finishes in hours instead of days</li>
-<li><strong>Significant DBU savings</strong></li>
+<li><strong>Significant Databricks Unit (DBU) savings</strong></li>
 </ul>
 </section>
 </div>
@@ -1017,54 +1017,114 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 <section id="our-own-scraping-ai-assistant" class="level2">
 <h2 class="anchored" data-anchor-id="our-own-scraping-ai-assistant">7. Our own scraping AI Assistant</h2>
-<p>The complexity of the code for this scraper increases with the number of web pages included and with each small feature. Even if the code offers an elegant solution, it will be overwhelming for a new data scientist.</p>
-<p>For this reason, <strong>we have created our own assistant</strong> using the free tier of <strong>Google Gemini</strong>. This assistant considers all the code, not only from Databricks, but also from the official GitHub repository of the Crawl4AI library. With this personalised tool, we can iterate quickly and make modifications with minimal hallucinations. Both ChatGPT and the Databricks assistant struggle with this code.</p>
-<p>The prompt used is as follows:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> llama_index.core.prompts <span class="im">import</span> PromptTemplate</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>qa_prompt_tmpl_str <span class="op">=</span> (</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Context information is below.</span><span class="ch">\n</span><span class="st">"</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"---------------------</span><span class="ch">\n</span><span class="st">"</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"</span><span class="sc">{context_str}</span><span class="ch">\n</span><span class="st">"</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"---------------------</span><span class="ch">\n</span><span class="st">"</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Given the context above, answer the query in a step-by-step manner. "</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Include code snippets when relevant. If you don't know the answer, say 'I don't know!'.</span><span class="ch">\n</span><span class="st">"</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Query: </span><span class="sc">{query_str}</span><span class="ch">\n</span><span class="st">"</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Answer: "</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>qa_prompt_tmpl <span class="op">=</span> PromptTemplate(qa_prompt_tmpl_str)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This is what the assistant can do:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> query_engine.query(<span class="st">'Provide a working example of multiple url crawling with magic mode'</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>display(Markdown(<span class="bu">str</span>(response)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre><code>2025-10-20 20:33:11.323 | INFO     | py4j.clientserver:wait_for_commands:600 | Received command c on object id p0
-To crawl multiple URLs with Magic Mode, you can iterate through a list of URLs and call the arun method for each one within the AsyncWebCrawler context.
-
-Here's a step-by-step example:
-
-1. Import necessary libraries: You'll need AsyncWebCrawler from crawl4ai and asyncio to run the asynchronous code.
-
-import asyncio
-from crawl4ai import AsyncWebCrawler
-
-2. Define a list of URLs: Create a list containing the URLs you want to crawl.
-
-urls_to_crawl = [
-    "https://www.reuters.com/markets/us/global-markets-view-usa-pix-2024-08-29/",
-    "https://crawl4ai.com",
-    "https://janineintheworld.com/places-to-visit-in-central-mexico"
-]
-3. Create an asynchronous function: This function will contain the crawling logic.
-...</code></pre>
-<p>Now, with <strong>GitHub Copilot</strong> integrated into our local environments, we can provide it with the same context and receive an even better assistant that can modify code on the fly!</p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>🤖 The Problem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>As the scraper grows in complexity (more websites, more features), the codebase becomes overwhelming for new team members. Generic AI assistants built with ChatGPT struggle with this specialized code.</p>
+</div>
+</div>
+<p><strong>Our Solution:</strong> A custom AI assistant trained on:</p>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="card quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><img src="https://img.shields.io/badge/📂-Our_Databricks_Code-blue?style=for-the-badge.png" class="img-fluid"></p>
+</div>
+<div class="card quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><img src="https://img.shields.io/badge/📚-Crawl4AI_Docs-green?style=for-the-badge.png" class="img-fluid"></p>
+</div>
+<div class="card quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><img src="https://img.shields.io/badge/🧠-Google_Gemini-orange?style=for-the-badge.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>🎯 <strong>Result:</strong> Fast iterations, minimal hallucinations, and code that actually works with our setup.</p>
+</div>
+</div>
+</div>
+<!-- PLACEHOLDER: Interactive assistant demo will be added here -->
 </section>
 <section id="next-steps" class="level2">
 <h2 class="anchored" data-anchor-id="next-steps">8. Next Steps</h2>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>🚀 Where do we go from here?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This scraper is just the beginning — here’s our roadmap for scaling impact.</p>
+</div>
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<section id="phase-1-deeper-insights" class="level3 card quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<h3 class="anchored" data-anchor-id="phase-1-deeper-insights">🔬 Phase 1: Deeper Insights</h3>
 <ul>
-<li>Use the AI models to study the patterns and behaviours of multiple competitors.</li>
-<li>Use this tool for other scraping needs across Inchcape.</li>
+<li><strong>Competitor Pattern Analysis</strong> — Use AI models to study pricing strategies, and market positioning.</li>
+<li><strong>Trend Detection</strong> — Identify seasonal patterns and emerging behaviors across brands.</li>
+<li><strong>Automated Alerts</strong> — Get notified when competitors make significant changes.</li>
 </ul>
-<p><br>
-<br>
-*This document was created with the help of GitHub Copilot.</p>
+</section>
+<section id="phase-2-scale-across-inchcape" class="level3 card quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<h3 class="anchored" data-anchor-id="phase-2-scale-across-inchcape">🌍 Phase 2: Scale Across Inchcape</h3>
+<ul>
+<li><strong>Other Markets</strong> — Expand to additional countries and regions.</li>
+<li><strong>Other Use Cases</strong> — Adapt the tool for parts pricing, vehicles, reviews, etc.</li>
+<li><strong>Scrapers Pricing</strong> — Enable business users to request new scrapers at a price.</li>
+</ul>
+</section>
+</div>
+</div>
+<div class="cell" data-fig-width="6" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    A[📊 Raw Data] --&gt; B[🤖 AI Analysis]
+    B --&gt; C[💡 Actionable Insights]
+    C --&gt; D[📈 Business Decisions]
+    
+    style A fill:#e3f2fd,stroke:#1976d2,color:#333
+    style B fill:#f3e5f5,stroke:#7b1fa2,color:#333
+    style C fill:#fff3e0,stroke:#ff9800,color:#333
+    style D fill:#e8f5e9,stroke:#388e3c,color:#333
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>💬 <strong>Interested in using this for your team?</strong> Reach out to discuss how we can adapt this solution for your needs.</p>
+</div>
+</div>
+</div>
+<hr>
+<center style="color: #888; font-size: 0.9em;">
+<em>This document was created with the help of GitHub Copilot.</em>
+</center>
 </section>
 </section>
 

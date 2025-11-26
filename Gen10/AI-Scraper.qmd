@@ -498,7 +498,7 @@ Across all websites
 :::
 :::
 ::: {}
-**Execution timeline:**
+**Execution time:**
 
 <img src="img/job_time.png" width="100%"/>
 :::
@@ -562,7 +562,7 @@ flowchart LR
 #### 💰 Lower Costs
 - Less cluster runtime = lower compute costs
 - Job finishes in hours instead of days
-- **Significant DBU savings**
+- **Significant Databricks Unit (DBU) savings**
 :::
 :::
 
@@ -574,63 +574,73 @@ flowchart LR
 
 ## 7. Our own scraping AI Assistant
 
-The complexity of the code for this scraper increases with the number of web pages included and with each small feature. Even if the code offers an elegant solution, it will be overwhelming for a new data scientist.
+::: {.callout-tip appearance="simple" icon=false}
+## 🤖 The Problem
+As the scraper grows in complexity (more websites, more features), the codebase becomes overwhelming for new team members. Generic AI assistants built with ChatGPT struggle with this specialized code.
+:::
 
-For this reason, **we have created our own assistant** using the free tier of **Google Gemini**. This assistant considers all the code, not only from Databricks, but also from the official GitHub repository of the Crawl4AI library. With this personalised tool, we can iterate quickly and make modifications with minimal hallucinations. Both ChatGPT and the Databricks assistant struggle with this code.
+**Our Solution:** A custom AI assistant trained on:
 
-The prompt used is as follows:
+::: {layout-ncol=3}
+::: {.card style="text-align: center;"}
+![](https://img.shields.io/badge/📂-Our_Databricks_Code-blue?style=for-the-badge)
+:::
+::: {.card style="text-align: center;"}
+![](https://img.shields.io/badge/📚-Crawl4AI_Docs-green?style=for-the-badge)
+:::
+::: {.card style="text-align: center;"}
+![](https://img.shields.io/badge/🧠-Google_Gemini-orange?style=for-the-badge)
+:::
+:::
 
-``` python
-from llama_index.core.prompts import PromptTemplate
-qa_prompt_tmpl_str = (
-    "Context information is below.\n"
-    "---------------------\n"
-    "{context_str}\n"
-    "---------------------\n"
-    "Given the context above, answer the query in a step-by-step manner. "
-    "Include code snippets when relevant. If you don't know the answer, say 'I don't know!'.\n"
-    "Query: {query_str}\n"
-    "Answer: "
-)
-qa_prompt_tmpl = PromptTemplate(qa_prompt_tmpl_str)
-```
+::: {.callout-note appearance="minimal"}
+🎯 **Result:** Fast iterations, minimal hallucinations, and code that actually works with our setup.
+:::
 
-This is what the assistant can do:
-
-``` python
-response = query_engine.query('Provide a working example of multiple url crawling with magic mode')
-display(Markdown(str(response)))
-```
-
-```         
-2025-10-20 20:33:11.323 | INFO     | py4j.clientserver:wait_for_commands:600 | Received command c on object id p0
-To crawl multiple URLs with Magic Mode, you can iterate through a list of URLs and call the arun method for each one within the AsyncWebCrawler context.
-
-Here's a step-by-step example:
-
-1. Import necessary libraries: You'll need AsyncWebCrawler from crawl4ai and asyncio to run the asynchronous code.
-
-import asyncio
-from crawl4ai import AsyncWebCrawler
-
-2. Define a list of URLs: Create a list containing the URLs you want to crawl.
-
-urls_to_crawl = [
-    "https://www.reuters.com/markets/us/global-markets-view-usa-pix-2024-08-29/",
-    "https://crawl4ai.com",
-    "https://janineintheworld.com/places-to-visit-in-central-mexico"
-]
-3. Create an asynchronous function: This function will contain the crawling logic.
-...
-```
-
-Now, with **GitHub Copilot** integrated into our local environments, we can provide it with the same context and receive an even better assistant that can modify code on the fly!
+<!-- PLACEHOLDER: Interactive assistant demo will be added here -->
 
 ## 8. Next Steps
 
--   Use the AI models to study the patterns and behaviours of multiple competitors.
--   Use this tool for other scraping needs across Inchcape.
+::: {.callout-tip appearance="simple" icon=false}
+## 🚀 Where do we go from here?
+This scraper is just the beginning — here's our roadmap for scaling impact.
+:::
 
-\
-\
-\*This document was created with the help of GitHub Copilot.
+::: {layout-ncol=2}
+::: {.card}
+### 🔬 Phase 1: Deeper Insights
+- **Competitor Pattern Analysis** — Use AI models to study pricing strategies, and market positioning.
+- **Trend Detection** — Identify seasonal patterns and emerging behaviors across brands.
+- **Automated Alerts** — Get notified when competitors make significant changes.
+:::
+
+::: {.card}
+### 🌍 Phase 2: Scale Across Inchcape
+- **Other Markets** — Expand to additional countries and regions.
+- **Other Use Cases** — Adapt the tool for parts pricing, vehicles, reviews, etc.
+- **Scrapers Pricing** — Enable business users to request new scrapers at a price.
+:::
+:::
+
+```{mermaid}
+%%| fig-width: 6
+flowchart LR
+    A[📊 Raw Data] --> B[🤖 AI Analysis]
+    B --> C[💡 Actionable Insights]
+    C --> D[📈 Business Decisions]
+    
+    style A fill:#e3f2fd,stroke:#1976d2,color:#333
+    style B fill:#f3e5f5,stroke:#7b1fa2,color:#333
+    style C fill:#fff3e0,stroke:#ff9800,color:#333
+    style D fill:#e8f5e9,stroke:#388e3c,color:#333
+```
+
+::: {.callout-note appearance="minimal"}
+💬 **Interested in using this for your team?** Reach out to discuss how we can adapt this solution for your needs.
+:::
+
+---
+
+<center style="color: #888; font-size: 0.9em;">
+*This document was created with the help of GitHub Copilot.*
+</center>
