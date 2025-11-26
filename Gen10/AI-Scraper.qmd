@@ -697,7 +697,7 @@ flowchart LR
 ```
 
 ::: {.callout-note appearance="minimal"}
-💬 **Interested in using this for your team?** Reach out to discuss how we can adapt this solution for your needs.
+💬 **Interested in using this for your team?** Reach out to the Data Science Team to discuss how we can adapt this solution for your needs.
 :::
 
 ---
