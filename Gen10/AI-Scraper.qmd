@@ -121,6 +121,9 @@ flowchart LR
 In **parts pricing**, competitor data is important because it helps a business understand market trends, identify opportunities and threats, and make better strategic decisions to gain and sustain competitive advantage.
 :::
 
+::: {.callout-warning appearance="simple" icon=false}
+## ⚠️ But scraping is hard...
+
 ::: {layout-ncol=3}
 ::: {.card}
 ### 🏗️ Complex Structures
@@ -137,18 +140,10 @@ Layouts update frequently, breaking traditional scrapers
 Sites actively block automated data collection
 :::
 :::
+:::
 
 Our team needed competitor prices **at scale**. Instead of expensive APIs or manual research, we built something **simpler, faster, and free** using modern AI tools.
 
-
-
--   No mencionar todas las páginas sino solo los mercados aprobados (Subaru y BMW de época de Tiger): listo al inicio, falta al final en la evidencia.
--   Explicación sencilla de web scraping: definición - (pasante esclavo sacando info, mentiras xd (manual) - librerías como requests o beautiful soup (insostenibilidad) - herramientas modernas LLMs):  LISTO
--   Enfatizar en las dificultades de scrapear - sostenibilidad y escalabilidad: LISTO
--   Mencionar proxy para reducir tiempos de ejecución - explicación sencilla como el ejemplo de los disfraces. Además posible reducción de costos al bajar la utilización del cluster.
--   Simplificar parte de Solution Implementation y todo en general
--   Performance metrics al inicio con más métricas.
--   Agregar más grafiquitos.
 
 ------------------------------------------------------------------------
 
@@ -396,6 +391,15 @@ Date & source
 |-----------|-----------|------------|------------|------------|---------|
 | 806750050 | Transmission Oil Pump Seal | $9.87 | $7.81 | subaruparts.com | Chile 🇨🇱 |
 
+::: {.callout-note collapse="true"}
+## 📍 Table Location (click to expand)
+```
+Name: competitors_ppo_global_v2
+Location: Azure Delta Lake
+```
+Full columns: `MANU_MATNR`, `oem_name`, `product_hierarchy`, `list_price`, `sale_price`, `url`, `scraped_date`, `competitor_name`, `currency`, `country`, `brand`, `source`
+:::
+
 ### 🗺️ Geographic Coverage
 
 ```{=html}
@@ -447,13 +451,7 @@ document.addEventListener('DOMContentLoaded', function() {
 :::
 :::
 
-::: {.callout-note collapse="true"}
-## 📍 Table Location (click to expand)
-```
-development.parts_pricing_feature_store_americas_dev.competitors_ppo_global_v2
-```
-Full columns: `MANU_MATNR`, `oem_name`, `product_hierarchy`, `list_price`, `sale_price`, `url`, `scraped_date`, `competitor_name`, `currency`, `country`, `brand`, `source`
-:::
+
 
 ## 6. Databricks Job
 

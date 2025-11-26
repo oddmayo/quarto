@@ -360,7 +360,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In <strong>parts pricing</strong>, competitor data is important because it helps a business understand market trends, identify opportunities and threats, and make better strategic decisions to gain and sustain competitive advantage.</p>
 </div>
 </div>
-</section>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>⚠️ But scraping is hard…
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div class="quarto-layout-panel" data-layout-ncol="3">
 <div class="quarto-layout-row">
 <section id="complex-structures" class="level3 card quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
@@ -377,17 +386,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </div>
 </div>
+</div>
+</div>
 <p>Our team needed competitor prices <strong>at scale</strong>. Instead of expensive APIs or manual research, we built something <strong>simpler, faster, and free</strong> using modern AI tools.</p>
-<ul>
-<li>No mencionar todas las páginas sino solo los mercados aprobados (Subaru y BMW de época de Tiger): listo al inicio, falta al final en la evidencia.</li>
-<li>Explicación sencilla de web scraping: definición - (pasante esclavo sacando info, mentiras xd (manual) - librerías como requests o beautiful soup (insostenibilidad) - herramientas modernas LLMs): LISTO</li>
-<li>Enfatizar en las dificultades de scrapear - sostenibilidad y escalabilidad: LISTO</li>
-<li>Mencionar proxy para reducir tiempos de ejecución - explicación sencilla como el ejemplo de los disfraces. Además posible reducción de costos al bajar la utilización del cluster.</li>
-<li>Simplificar parte de Solution Implementation y todo en general</li>
-<li>Performance metrics al inicio con más métricas.</li>
-<li>Agregar más grafiquitos.</li>
-</ul>
 <hr>
+</section>
 <section id="the-tools" class="level2">
 <h2 class="anchored" data-anchor-id="the-tools">1. The Tools</h2>
 <div class="callout callout-style-simple callout-tip no-icon callout-titled">
@@ -648,7 +651,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This gives us <strong>robustness</strong> (AI handles changes) + <strong>speed</strong> (CSS extraction is fast).</p>
 <p>Data from <strong>mystery shoppers</strong> and <strong>third-party scrapers</strong> is also included.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -657,7 +660,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Setup commands:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-fsSL</span> https://ollama.com/install.sh <span class="kw">|</span> <span class="fu">sh</span>    <span class="co"># Install Ollama</span></span>
@@ -767,6 +770,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>📍 Table Location (click to expand)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<pre><code>Name: competitors_ppo_global_v2
+Location: Azure Delta Lake</code></pre>
+<p>Full columns: <code>MANU_MATNR</code>, <code>oem_name</code>, <code>product_hierarchy</code>, <code>list_price</code>, <code>sale_price</code>, <code>url</code>, <code>scraped_date</code>, <code>competitor_name</code>, <code>currency</code>, <code>country</code>, <code>brand</code>, <code>source</code></p>
+</div>
+</div>
+</div>
 <section id="geographic-coverage" class="level3">
 <h3 class="anchored" data-anchor-id="geographic-coverage">🗺️ Geographic Coverage</h3>
 <div id="map" style="height: 400px; width: 100%; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);"></div>
@@ -816,23 +837,6 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>📍 Table Location (click to expand)
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<pre><code>development.parts_pricing_feature_store_americas_dev.competitors_ppo_global_v2</code></pre>
-<p>Full columns: <code>MANU_MATNR</code>, <code>oem_name</code>, <code>product_hierarchy</code>, <code>list_price</code>, <code>sale_price</code>, <code>url</code>, <code>scraped_date</code>, <code>competitor_name</code>, <code>currency</code>, <code>country</code>, <code>brand</code>, <code>source</code></p>
-</div>
-</div>
-</div>
 </section>
 </section>
 <section id="databricks-job" class="level2">
@@ -867,7 +871,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <p><img src="img/job_webpages.png" width="100%"></p>
 <p><img src="https://img.shields.io/badge/BMW-4_sites-0066b1?style=flat-square&amp;logo=bmw&amp;logoColor=white.png" class="img-fluid" alt="BMW"> <img src="https://img.shields.io/badge/Subaru-1_site-013C74?style=flat-square&amp;logo=subaru&amp;logoColor=white.png" class="img-fluid" alt="Subaru"></p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -876,7 +880,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>BMW:</strong> bmwdirectparts.com, bmwpartshub.com, getbmwparts.com, parts.bramanmotorsbmw.com</p>
 <p><strong>Subaru:</strong> subaruparts.com</p>
