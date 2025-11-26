@@ -344,6 +344,8 @@ flowchart LR
 
 This gives us **robustness** (AI handles changes) + **speed** (CSS extraction is fast).
 
+Data from **mystery shoppers** and **third-party scrapers** is also included.
+
 ::: {.callout-note collapse="true"}
 ## 🔧 Technical Details (click to expand)
 
@@ -368,20 +370,56 @@ ollama pull qwen2.5:3b                            # Download AI model
 | `oem_codes` | Consolidates part numbers from different ERPs |
 | `scraper_calls` | Core scraping automation logic |
 | `markets` | Website-specific notebooks |
+| `mystery_shopper` | Data obatined from research |
+| `third_party` | Data obtained from third party scrapers |
 
 :::
 
-## 5. Final table
 
-This unique table contains information on every brand and country. You can view it here:
 
-```         
+## 5. Final Table
+
+::: {.callout-tip appearance="simple" icon=false}
+## 📊 One Table to Rule Them All
+All competitor data flows into a **single, unified table** — regardless of brand, country, or source.
+:::
+
+::: {layout-ncol=4}
+::: {.card style="text-align: center;"}
+### 🏷️
+**Part Info**
+Name & codes
+:::
+::: {.card style="text-align: center;"}
+### 💰
+**Pricing**
+List & sale price
+:::
+::: {.card style="text-align: center;"}
+### 🌍
+**Location**
+Country & currency
+:::
+::: {.card style="text-align: center;"}
+### 📅
+**Tracking**
+Date & source
+:::
+:::
+
+**Sample row from the table:**
+
+| Part Code | Part Name | List Price | Sale Price | Competitor | Country |
+|-----------|-----------|------------|------------|------------|---------|
+| 806750050 | Transmission Oil Pump Seal | $9.87 | $7.81 | subaruparts.com | Chile 🇨🇱 |
+
+::: {.callout-note collapse="true"}
+## 📍 Table Location (click to expand)
+```
 development.parts_pricing_feature_store_americas_dev.competitors_ppo_global_v2
 ```
-
-| **MANU_MATNR** | **oem_name** | **product_hierarchy** | **list_price** | **sale_price** | **url** | **scraped_date** | **competitor_name** | **currency** | **country** | **brand** | **source** |
-|------|------|------|------|------|------|------|------|------|------|------|------|
-| 806750050 | Automatic Transmission Oil Pump Seal | 100005692 | 9.87 | 7.81 | https://www.subaruparts.com/oem-parts/subaru-automatic-transmission-oil-pump-seal-806750050?c=bD0xJm49U2VhcmNoIFJlc3VsdHM%3D | 2025-11-01 | subaruparts.com | USD | CHILE | SUBARU | scraper |
+Full columns: `MANU_MATNR`, `oem_name`, `product_hierarchy`, `list_price`, `sale_price`, `url`, `scraped_date`, `competitor_name`, `currency`, `country`, `brand`, `source`
+:::
 
 ## 6. Databricks Job
 

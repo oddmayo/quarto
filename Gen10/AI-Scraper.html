@@ -663,6 +663,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>This gives us <strong>robustness</strong> (AI handles changes) + <strong>speed</strong> (CSS extraction is fast).</p>
+<p>Data from <strong>mystery shoppers</strong> and <strong>third-party scrapers</strong> is also included.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -702,6 +703,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td><code>markets</code></td>
 <td>Website-specific notebooks</td>
 </tr>
+<tr class="even">
+<td><code>mystery_shopper</code></td>
+<td>Data obatined from research</td>
+</tr>
+<tr class="odd">
+<td><code>third_party</code></td>
+<td>Data obtained from third party scrapers</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -710,57 +719,88 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 <section id="final-table" class="level2">
-<h2 class="anchored" data-anchor-id="final-table">5. Final table</h2>
-<p>This unique table contains information on every brand and country. You can view it here:</p>
-<pre><code>development.parts_pricing_feature_store_americas_dev.competitors_ppo_global_v2</code></pre>
+<h2 class="anchored" data-anchor-id="final-table">5. Final Table</h2>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>📊 One Table to Rule Them All
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>All competitor data flows into a <strong>single, unified table</strong> — regardless of brand, country, or source.</p>
+</div>
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="4">
+<div class="quarto-layout-row">
+<section id="section" class="level3 card quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<h3 class="anchored" data-anchor-id="section">🏷️</h3>
+<p><strong>Part Info</strong> Name &amp; codes</p>
+</section>
+<section id="section-1" class="level3 card quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<h3 class="anchored" data-anchor-id="section-1">💰</h3>
+<p><strong>Pricing</strong> List &amp; sale price</p>
+</section>
+<section id="section-2" class="level3 card quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<h3 class="anchored" data-anchor-id="section-2">🌍</h3>
+<p><strong>Location</strong> Country &amp; currency</p>
+</section>
+<section id="section-3" class="level3 card quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<h3 class="anchored" data-anchor-id="section-3">📅</h3>
+<p><strong>Tracking</strong> Date &amp; source</p>
+</section>
+</div>
+</div>
+<p><strong>Sample row from the table:</strong></p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 13%">
 </colgroup>
 <thead>
 <tr class="header">
-<th><strong>MANU_MATNR</strong></th>
-<th><strong>oem_name</strong></th>
-<th><strong>product_hierarchy</strong></th>
-<th><strong>list_price</strong></th>
-<th><strong>sale_price</strong></th>
-<th><strong>url</strong></th>
-<th><strong>scraped_date</strong></th>
-<th><strong>competitor_name</strong></th>
-<th><strong>currency</strong></th>
-<th><strong>country</strong></th>
-<th><strong>brand</strong></th>
-<th><strong>source</strong></th>
+<th>Part Code</th>
+<th>Part Name</th>
+<th>List Price</th>
+<th>Sale Price</th>
+<th>Competitor</th>
+<th>Country</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>806750050</td>
-<td>Automatic Transmission Oil Pump Seal</td>
-<td>100005692</td>
-<td>9.87</td>
-<td>7.81</td>
-<td>https://www.subaruparts.com/oem-parts/subaru-automatic-transmission-oil-pump-seal-806750050?c=bD0xJm49U2VhcmNoIFJlc3VsdHM%3D</td>
-<td>2025-11-01</td>
+<td>Transmission Oil Pump Seal</td>
+<td>$9.87</td>
+<td>$7.81</td>
 <td>subaruparts.com</td>
-<td>USD</td>
-<td>CHILE</td>
-<td>SUBARU</td>
-<td>scraper</td>
+<td>Chile 🇨🇱</td>
 </tr>
 </tbody>
 </table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>📍 Table Location (click to expand)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<pre><code>development.parts_pricing_feature_store_americas_dev.competitors_ppo_global_v2</code></pre>
+<p>Full columns: <code>MANU_MATNR</code>, <code>oem_name</code>, <code>product_hierarchy</code>, <code>list_price</code>, <code>sale_price</code>, <code>url</code>, <code>scraped_date</code>, <code>competitor_name</code>, <code>currency</code>, <code>country</code>, <code>brand</code>, <code>source</code></p>
+</div>
+</div>
+</div>
 </section>
 <section id="databricks-job" class="level2">
 <h2 class="anchored" data-anchor-id="databricks-job">6. Databricks Job</h2>
