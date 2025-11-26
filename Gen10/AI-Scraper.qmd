@@ -27,18 +27,18 @@
 ```{mermaid}
 %%| fig-width: 7
 flowchart LR
-    subgraph "🌍 The Web"
+    subgraph WEB ["🌍 The Web"]
         A[("🛒 Website A")]
         B[("🛒 Website B")]
         C[("🛒 Website C")]
     end
     
-    subgraph "🤖 Web Scraper"
-        D["Visits pages\nautomatically"]
+    subgraph SCRAPER ["🤖 Web Scraper"]
+        D["Visits pages automatically"]
     end
     
-    subgraph "📊 Output"
-        E[("Organized\nData")]
+    subgraph OUT ["📊 Output"]
+        E[("Organized Data")]
     end
     
     A --> D
@@ -46,8 +46,14 @@ flowchart LR
     C --> D
     D --> E
     
-    style D fill:#9b59b6,color:#fff
-    style E fill:#27ae60,color:#fff
+    style WEB fill:#e3f2fd,stroke:#1976d2,color:#333
+    style SCRAPER fill:#f3e5f5,stroke:#7b1fa2,color:#333
+    style OUT fill:#e8f5e9,stroke:#388e3c,color:#333
+    style A fill:#fff,stroke:#333,color:#333
+    style B fill:#fff,stroke:#333,color:#333
+    style C fill:#fff,stroke:#333,color:#333
+    style D fill:#9b59b6,color:#fff,stroke:#7d3c98
+    style E fill:#27ae60,color:#fff,stroke:#1e8449
 ```
 
 ::: {.panel-tabset}
@@ -55,7 +61,7 @@ flowchart LR
 ### 👤 Manual Research
 
 ::: {layout="[30,70]"}
-![](https://media.giphy.com/media/3o7TKRwpns23QMNNiE/giphy.gif){width="120" fig-align="center"}
+![](https://media.giphy.com/media/3o7TKRwpns23QMNNiE/giphy.gif){width="200" fig-align="center"}
 
 | Aspect | Reality |
 |--------|---------|
@@ -69,7 +75,7 @@ flowchart LR
 ### 🔧 Traditional Scraping
 
 ::: {layout="[30,70]"}
-![](https://media.giphy.com/media/ZVik7pBtu9dNS/giphy.gif){width="120" fig-align="center"}
+![](https://media.giphy.com/media/ZVik7pBtu9dNS/giphy.gif){width="200" fig-align="center"}
 
 | Aspect | Reality |
 |--------|---------|
@@ -83,7 +89,7 @@ flowchart LR
 ### 🤖 AI-Powered (Our Solution)
 
 ::: {layout="[30,70]"}
-![](https://media.giphy.com/media/RR32PdmXEwkuzZFKSa/giphy.gif){width="120" fig-align="center"}
+![](https://media.giphy.com/media/RR32PdmXEwkuzZFKSa/giphy.gif){width="200" fig-align="center"}
 
 | Aspect | Reality |
 |--------|---------|
@@ -101,7 +107,7 @@ flowchart LR
 ::: {.callout-important appearance="simple"}
 ## 💰 Why Competitor Data Matters
 
-In **parts pricing**, knowing what competitors charge is the difference between winning and losing customers. Without this data, pricing decisions are guesswork.
+In **parts pricing**, competitor data is important because it helps a business understand market trends, identify opportunities and threats, and make better strategic decisions to gain and sustain competitive advantage.
 :::
 
 ::: {layout-ncol=3}
@@ -198,21 +204,22 @@ Previously, entire teams were dedicated to competitor data collection. Our solut
 Both tools are **open-source**, supported by large communities, and safe for enterprise use.
 :::
 
-> Both of these tools are supported by a large community and are safe to use.
 
 ## 2. Features
 
+Here's what our AI-powered scraping solution can do:
+
 | Feature | Description | Status |
 |----------------------|------------------------------|--------------------|
-| 🕷️ **Smart scraping** | Transform manual research into automated tasks | ✅ Ready |
-| 🔧 **Scalability** | Robust to website changes | ✅ Ready |
-| ⚡ **Performance** | Handle multiple competitors simultaneously | ✅ Ready |
-| 🛡️ **Compliance** | Built-in ethical guidelines and rate limiting | ✅ Ready |
-| 📊 **PPO tool** | Include competitors information in simulator tool | ✅ Ready |
-| 💡 **Coding assistant** | Local coding assistant for fast iteration | ✅ Ready |
-| 📅 **Monthly monitoring** | Extract competitor prices to build a historical database | 🔄 In progress |
-| 🚀 **Scalability-jsjsjsjs** | Solution applicable to any team in Inchcape | 📋 Planned |
-| 🤖 **AI analysis** | Track competitors price behaviours with AI | 📋 Planned |
+| 🕷️ **Smart scraping** | Transform manual research into automated tasks | ![Ready](https://img.shields.io/badge/Ready-success?style=flat-square) |
+| 🔧 **Resilient** | Robust to website changes | ![Ready](https://img.shields.io/badge/Ready-success?style=flat-square) |
+| ⚡ **Performance** | Handle multiple competitors simultaneously | ![Ready](https://img.shields.io/badge/Ready-success?style=flat-square) |
+| 🛡️ **Compliance** | Built-in ethical guidelines and rate limiting | ![Ready](https://img.shields.io/badge/Ready-success?style=flat-square) |
+| 📊 **Pricing Simulator** | Feed competitor data into our pricing optimization tool | ![Ready](https://img.shields.io/badge/Ready-success?style=flat-square) |
+| 💡 **Coding assistant** | Local AI assistant for fast development iteration | ![Ready](https://img.shields.io/badge/Ready-success?style=flat-square) |
+| 🗓️ **Monthly monitoring** | Build historical database of competitor prices | ![In Progress](https://img.shields.io/badge/In_Progress-yellow?style=flat-square) |
+| 🚀 **Scalability** | Solution applicable to any team in Inchcape | ![Planned](https://img.shields.io/badge/Planned-blue?style=flat-square) |
+| 🤖 **AI analysis** | Track competitor pricing behaviors with AI | ![Planned](https://img.shields.io/badge/Planned-blue?style=flat-square) |
 
 ------------------------------------------------------------------------
 
@@ -221,145 +228,148 @@ Both tools are **open-source**, supported by large communities, and safe for ent
 First, we study suitable websites to ensure that they are relevant (i.e. not accessories or vehicles) and allow data extraction. We then follow this structure to extract competitors' data on parts pricing.
 
 ```{mermaid}
-flowchart LR
-
-    J[Databricks job]
-    K[Azure Delta Lake]
+%%| fig-width: 8
+flowchart TB
+    subgraph INPUT ["📥 Data Sources"]
+        K[(Azure Delta Lake)]
+        J[⚙️ Databricks Job]
+        A[🌐 Competitor Websites]
+    end
+    
+    subgraph PROCESS ["🔄 Processing"]
+        direction TB
+        L[ERP Classification]
+        I[OEM Part Numbers]
+        
+        subgraph FILTER ["Website Filtering"]
+            B[❌ Non-suitable]
+            C[✅ Suitable]
+        end
+        
+        subgraph EXTRACT ["Extraction Methods"]
+            F[🔧 CSS Extraction]
+            G[🤖 AI Extraction]
+        end
+        
+        M[🧠 Intelligent Scraper Class]
+    end
+    
+    subgraph OUTPUT ["📤 Output"]
+        H[(Competitors Data Table)]
+        N[📊 Pricing Simulator Tool]
+    end
+    
     J --> A
-    I[OEM part numbers]
-    A[Competitor websites] --> B[Non-suitable websites]
-    A --> C[Suitable websites]
-    F[CSS extraction]
-    G[AI extraction]
+    K --> L
+    L --> I
+    A --> B
+    A --> C
     C --> F
     C --> G
     F --> M
     G --> M
-    H[Competitors data table]
-
-    M[Intelligent scrapper class]
-    
-    K --> L[ERP classification]
-    L --> I
-    I ---> M
+    I --> M
     M --> H
-    
-
-    N[PPO simulator tool]
-    
     H --> N
-   
+    
+    style INPUT fill:#e8f4fd,stroke:#1a73e8
+    style PROCESS fill:#fef7e0,stroke:#f9ab00
+    style OUTPUT fill:#e6f4ea,stroke:#34a853
+    style FILTER fill:#fff3e0,stroke:#ff9800,color:#333
+    style EXTRACT fill:#e3f2fd,stroke:#2196f3,color:#333
+    style M fill:#9b59b6,color:#fff,stroke:#7d3c98
+    style H fill:#27ae60,color:#fff,stroke:#1e8449
+    style J fill:#fff,stroke:#333,color:#333
+    style K fill:#fff,stroke:#333,color:#333
+    style A fill:#fff,stroke:#333,color:#333
+    style L fill:#fff,stroke:#333,color:#333
+    style I fill:#fff,stroke:#333,color:#333
+    style B fill:#ffebee,stroke:#c62828,color:#333
+    style C fill:#e8f5e9,stroke:#2e7d32,color:#333
+    style F fill:#fff,stroke:#333,color:#333
+    style G fill:#fff,stroke:#333,color:#333
+    style N fill:#fff,stroke:#333,color:#333
 ```
 
 ## 4. Solution Implementation
 
-This section briefly outlines all the steps involved in building the AI-powered web scraper and provides evidence of its functionality within the Databricks ecosystem.
+::: {.callout-tip appearance="simple" icon=false}
+## 💡 The Key Insight
+Traditional scraping requires manually finding **44+ HTML elements** across our websites. Our AI reads the page and extracts what we need — automatically.
+:::
 
-### 4.1 Setup
+### How It Works
 
-``` bash
-# install Ollama
-curl -fsSL https://ollama.com/install.sh | sh
+::: {layout-ncol=2}
 
-# install crawl4ai and its dependencies
-pip install -U crawl4ai
-python -m playwright install --with-deps chromium
+::: {.card}
+#### ❌ Traditional Way
+1. Inspect website HTML manually
+2. Find the exact tag for each element
+3. Write custom code for each site
+4. **Repeat when site changes** 😩
+:::
 
-# our chosen large language model
-ollama pull qwen2.5:3b
+::: {.card}
+#### ✅ Our AI Way  
+1. Tell the AI what data you need
+2. AI reads the page and finds it
+3. Works across different sites
+4. **Adapts to changes automatically** 🎉
+:::
+
+:::
+
+### The Hybrid Approach
+
+We combine **both methods** for the best results:
+
+```{mermaid}
+%%| fig-width: 6
+flowchart LR
+    A[🌐 Website] --> B{Complex?}
+    B -->|Yes| C[🤖 AI extracts data directly]
+    B -->|No| D[🤖 AI finds HTML tags]
+    D --> E[⚡ Fast CSS extraction]
+    C --> F[📊 Structured Data]
+    E --> F
+    
+    style A fill:#fff,stroke:#333,color:#333
+    style B fill:#fff3e0,stroke:#ff9800,color:#333
+    style C fill:#e8f5e9,stroke:#388e3c,color:#333
+    style D fill:#e3f2fd,stroke:#1976d2,color:#333
+    style E fill:#e3f2fd,stroke:#1976d2,color:#333
+    style F fill:#27ae60,color:#fff,stroke:#1e8449
 ```
 
-### 4.2 Databricks Workspace
+This gives us **robustness** (AI handles changes) + **speed** (CSS extraction is fast).
 
-The project is already working in the databricks ecosystem, loading and writing tables once a month.
+::: {.callout-note collapse="true"}
+## 🔧 Technical Details (click to expand)
+
+**Setup commands:**
+```bash
+curl -fsSL https://ollama.com/install.sh | sh    # Install Ollama
+pip install -U crawl4ai                           # Install Crawl4AI
+ollama pull qwen2.5:3b                            # Download AI model
+```
+
+**What we extract from each product:**
+- Part name
+- List price (MSRP)
+- Sale price
+
+**Databricks workspace structure:**
 
 <img src="img/folders.png" width="200"/>
 
-#### 4.2.1 *oem_codes*
+| Folder | Purpose |
+|--------|---------|
+| `oem_codes` | Consolidates part numbers from different ERPs |
+| `scraper_calls` | Core scraping automation logic |
+| `markets` | Website-specific notebooks |
 
-Different brands and countries use different ERPs (SAP, Autoline and Derco, for example). This folder contains specific routines that extract all OEM part numbers and consolidate them in a table with a **consistent format**.
-
-#### 4.2.2 *scraper_calls*
-
-It contains the scraping class and the functions used to **automate** the loading, extraction, post-processing and writing of all web pages.
-
-#### 4.2.3 *markets*
-
-It contains notebooks for **all the web pages** that have already been scraped. It also contains a notebook for **testing** every new web page quickly.
-
-#### 4.2.4 *mystery shopper and third party scrapper*
-
-It does not matter if a market did a mystery shopper of their own, or if they get their competitor data through a third party. We included this cases to mantain the **same format** as our competitor table.
-
-### 4.3 AI scrapper logic
-
-Traditionally, a scraper requires you to inspect the HTML of a webpage and find the tags for every element you want to extract. For example, if we wanted the price of a single product, the **HTML** tag would look like this:
-
-<img src="img/html_tag.png" width="400"/>
-
-Once we have identified the elements, we use an extraction strategy via CSS or XPath. This process must be repeated for every element on every web page! We currently extract the following elements:
-
--   part name
--   MSRP or list price
--   sale price
--   We also need something called the 'BaseSelector', which is the part of the website that contains the information we are looking for.
-
-This equates to four elements per website. Since we currently scrape 11 of them, a total of **44 elements require manual searching** (plus the discarded ones).
-
-However, with this new solution, we address the problem we had with two options:
-
--   Use the LLM directly to read the HTML and scrape the data. Use the LLM to detect the HTML tags, and then use the other extraction strategies.
-
-We opted for a **hybrid approach**, using both the LLM and traditional CSS extraction. This gives us the best of both worlds: robustness to website changes, scalability, and speed.
-
-### 4.4 AI scrapper class
-
-The class is quite long, but the important thing is that we designed our table with all these columns in mind from the outset:
-
-``` python
-class CompetitorCrawler:
-    def __init__(self, df, competitor, currency, source, country, brand,
-    base_selector, oem_name, sale_price, list_price, custom_url = None):
-    .
-    .
-    .
-```
-
-We have two prompts; one for difficult websites:
-
-``` python
-instruction="""
-                From the crawled content, extract the following details:
-                1. Title of the product
-                2. MSRP of the product
-                3. Sale price of the product
-                In structured JSON format
-                {
-                    "title": "Product title",
-                    "mrsp": "Product msrp",
-                    "price": "Product price"
-                }
-                """
-```
-
-And another one for regular websites:
-
-``` python
-instruction="""
-                From the crawled content extract the html tags of:
-                1. Title of the product
-                2. MSRP of the product
-                3. Sale price of the product
-                4. BaseSelector where the previous three are located
-                In structured JSON format
-                {
-                    "title_tag": "title html tag",
-                    "mrsp_tag": "msrp html tag",
-                    "price_tag": "price html tag",
-                    "base_selector_tag": " base selector tag"
-                }
-                """
-```
+:::
 
 ## 5. Final table
 
