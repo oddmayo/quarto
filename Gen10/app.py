@@ -55,16 +55,19 @@ SAMPLE_QUESTIONS = [
 app_ui = ui.page_fluid(
     ui.tags.head(
         ui.tags.style("""
-            body { background-color: #1a1a2e; color: #eee; font-family: 'Segoe UI', sans-serif; }
-            .card { background-color: #16213e; border: 1px solid #0f3460; border-radius: 12px; padding: 20px; margin-bottom: 20px; }
-            .btn-primary { background-color: #e94560; border: none; }
-            .btn-primary:hover { background-color: #ff6b6b; }
-            .btn-outline-secondary { border-color: #0f3460; color: #eee; }
-            .btn-outline-secondary:hover { background-color: #0f3460; }
-            textarea, input { background-color: #0f3460 !important; border: 1px solid #1a1a2e !important; color: #eee !important; }
-            .response-box { background-color: #0f3460; border-radius: 8px; padding: 15px; white-space: pre-wrap; font-family: monospace; }
-            h2 { color: #e94560; }
-            .subtitle { color: #aaa; font-size: 0.9em; margin-bottom: 20px; }
+            body { background-color: #ffffff; color: #000000; font-family: 'Segoe UI', sans-serif; }
+            .card { background-color: #ffffff; border: 2px solid #000000; border-radius: 12px; padding: 24px; margin-bottom: 20px; }
+            .btn-primary { background-color: #2563eb; border: none; font-weight: 600; color: #ffffff; }
+            .btn-primary:hover { background-color: #1d4ed8; }
+            .btn-outline-secondary { border: 1px solid #374151; color: #000000; background-color: #f3f4f6; }
+            .btn-outline-secondary:hover { background-color: #e5e7eb; color: #000000; }
+            textarea, input { background-color: #ffffff !important; border: 2px solid #374151 !important; color: #000000 !important; font-size: 16px !important; }
+            .response-box { background-color: #ffffff; border: 2px solid #374151; border-radius: 8px; padding: 20px; white-space: pre-wrap; font-family: 'Consolas', 'Monaco', monospace; font-size: 15px; line-height: 1.7; color: #000000; }
+            h2 { color: #1e40af; }
+            h4 { color: #000000; }
+            .subtitle { color: #374151; font-size: 1em; margin-bottom: 20px; }
+            label { color: #000000; font-weight: 600; font-size: 16px; }
+            p { color: #000000; }
         """)
     ),
     ui.div(
