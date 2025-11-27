@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Camilo Mayorquín (Data Science Team)">
+<meta name="dcterms.date" content="2025-11-28">
 
-<title>ai-scraper</title>
+<title>🤖 Web Scraping of Competitor Data with Generative AI</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,7 +71,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="AI-Scraper_files/libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="AI-Scraper_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="AI-Scraper_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="AI-Scraper_files/libs/bootstrap/bootstrap-21c39143584bebe83cb500300cd07cbb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="AI-Scraper_files/libs/bootstrap/bootstrap-8b6efc2a89aac19c2cbab7a5345bc8fe.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <style>html{ scroll-behavior: smooth; }</style>
 <script src="AI-Scraper_files/libs/quarto-diagram/mermaid.min.js"></script>
 <script src="AI-Scraper_files/libs/quarto-diagram/mermaid-init.js"></script>
@@ -80,39 +82,67 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <body class="quarto-light">
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">🤖 Web Scraping of Competitor Data with Generative AI</h1>
+            <p class="subtitle lead"></p><p><strong>🚀 <em>The Ultimate AI-Powered Competitive Intelligence Platform</em> 🚀</strong></p>
+<p><img src="https://img.shields.io/badge/AI_Powered-Ollama-purple?style=for-the-badge&amp;logo=ollama.png" class="img-fluid" alt="AI Powered"> <img src="https://img.shields.io/badge/Open_Source-Community-blue?style=for-the-badge&amp;logo=github.png" class="img-fluid" alt="Open Source"> <img src="https://img.shields.io/badge/Databricks-Enabled-orange?style=for-the-badge&amp;logo=databricks.png" class="img-fluid" alt="Databricks"></p><p></p>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Camilo Mayorquín (Data Science Team) </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">November 28, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  <div>
+    <div class="abstract">
+      <div class="block-title">Important</div>
+      This is an interactive document! Don’t forget to explore the expandable sections and embedded content.
+    </div>
+  </div>
+  
+  </header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
 <div id="quarto-sidebar-toc-left" class="sidebar toc-left">
   <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#web-scraping-of-competitor-data-with-generative-ai" id="toc-web-scraping-of-competitor-data-with-generative-ai" class="nav-link active" data-scroll-target="#web-scraping-of-competitor-data-with-generative-ai">🤖 Web Scraping of Competitor Data with Generative AI</a>
-  <ul class="collapse">
-  <li><a href="#the-tools" id="toc-the-tools" class="nav-link" data-scroll-target="#the-tools">1. The Tools</a></li>
+  <li><a href="#the-tools" id="toc-the-tools" class="nav-link active" data-scroll-target="#the-tools">1. The Tools</a></li>
   <li><a href="#features" id="toc-features" class="nav-link" data-scroll-target="#features">2. Features</a></li>
   <li><a href="#the-plan" id="toc-the-plan" class="nav-link" data-scroll-target="#the-plan">3. The Plan</a></li>
   <li><a href="#solution-implementation" id="toc-solution-implementation" class="nav-link" data-scroll-target="#solution-implementation">4. Solution Implementation</a></li>
   <li><a href="#final-result" id="toc-final-result" class="nav-link" data-scroll-target="#final-result">5. Final Result</a></li>
   <li><a href="#databricks-job" id="toc-databricks-job" class="nav-link" data-scroll-target="#databricks-job">6. Databricks Job</a></li>
-  <li><a href="#our-own-scraping-ai-assistant" id="toc-our-own-scraping-ai-assistant" class="nav-link" data-scroll-target="#our-own-scraping-ai-assistant">7. Our own scraping AI Assistant</a></li>
+  <li><a href="#our-own-scraping-ai-assistant" id="toc-our-own-scraping-ai-assistant" class="nav-link" data-scroll-target="#our-own-scraping-ai-assistant">7. Our Own Scraping AI Assistant</a></li>
   <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">8. Next Steps</a></li>
-  </ul></li>
   </ul>
 </nav>
 </div>
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
 </div>
-<main class="content" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
-<section id="web-scraping-of-competitor-data-with-generative-ai" class="level1">
-<h1>🤖 Web Scraping of Competitor Data with Generative AI</h1>
-<div data-align="center">
-<p><img src="https://img.shields.io/badge/AI_Powered-Ollama-purple?style=for-the-badge&amp;logo=ollama.png" class="img-fluid" alt="AI Powered"> <img src="https://img.shields.io/badge/Open_Source-Community-blue?style=for-the-badge&amp;logo=github.png" class="img-fluid" alt="Open Source"> <img src="https://img.shields.io/badge/Databricks-Enabled-orange?style=for-the-badge&amp;logo=databricks.png" class="img-fluid" alt="Databricks"></p>
-<p><strong>🚀 <em>The Ultimate AI-Powered Competitive Intelligence Platform</em> 🚀</strong></p>
-</div>
+
 <section id="performance-metrics" class="level3">
 <h3 class="anchored" data-anchor-id="performance-metrics"><strong>Performance Metrics</strong></h3>
 <table class="caption-top table">
@@ -832,7 +862,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Chile - Both brands
     L.marker([-33.45, -71.5], {icon: bmwIcon}).addTo(map).bindPopup('<b>🇨🇱 Chile</b><br>BMW: 4 websites');
     L.marker([-35.5, -71.5], {icon: subaruIcon}).addTo(map).bindPopup('<b>🇨🇱 Chile</b><br>Subaru: 1 website');
-    L.marker([-32.0, -71.5], {icon: dercoIcon}).addTo(map).bindPopup('<b>🇨🇱 Chile</b><br>Derco: 1 mystery shopper');
+    L.marker([-32.0, -71.5], {icon: dercoIcon}).addTo(map).bindPopup('<b>🇨🇱 Chile</b><br>Derco: 1 mystery shopper (Suzuki and Renault)');
     
     // Peru - Both brands  
     L.marker([-12.05, -78.0], {icon: bmwIcon}).addTo(map).bindPopup('<b>🇵🇪 Peru</b><br>4 websites');
@@ -842,7 +872,7 @@ document.addEventListener('DOMContentLoaded', function() {
     L.marker([4.7, -74.07], {icon: subaruIcon}).addTo(map).bindPopup('<b>🇨🇴 Colombia</b><br>1 website');
     
     // Bulgaria - Toyota
-    L.marker([42.7, 25.5], {icon: toyotaIcon}).addTo(map).bindPopup('<b>🇧🇬 Bulgaria</b><br>Toyota: 3 websites');
+    L.marker([42.7, 25.5], {icon: toyotaIcon}).addTo(map).bindPopup('<b>🇧🇬 Bulgaria</b><br>Toyota: 3 websites (third party)');
 });
 </script>
 <div class="quarto-layout-panel" data-layout-ncol="4">
@@ -880,7 +910,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 <section id="parts-scraped" class="level3 card quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <h3 class="anchored" data-anchor-id="parts-scraped">🔢 Parts Scraped</h3>
-<p><strong>~100,000</strong> Across all websites</p>
+<p><strong>~50,000</strong> Across all websites</p>
 </section>
 <section id="websites" class="level3 card quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <h3 class="anchored" data-anchor-id="websites">🌐 Websites</h3>
@@ -1044,7 +1074,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 </section>
 <section id="our-own-scraping-ai-assistant" class="level2">
-<h2 class="anchored" data-anchor-id="our-own-scraping-ai-assistant">7. Our own scraping AI Assistant</h2>
+<h2 class="anchored" data-anchor-id="our-own-scraping-ai-assistant">7. Our Own Scraping AI Assistant</h2>
 <div class="callout callout-style-simple callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1225,7 +1255,6 @@ document.addEventListener('DOMContentLoaded', function() {
 <center style="color: #888; font-size: 0.9em;">
 <em>This document was created with the help of GitHub Copilot.</em>
 </center>
-</section>
 </section>
 
 </main>

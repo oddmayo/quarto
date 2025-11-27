@@ -1,21 +1,27 @@
 ---
-title: ""
+title: "🤖 Web Scraping of Competitor Data with Generative AI"
+subtitle: | 
+    **🚀 *The Ultimate AI-Powered Competitive Intelligence Platform* 🚀** 
+
+    ![AI Powered](https://img.shields.io/badge/AI_Powered-Ollama-purple?style=for-the-badge&logo=ollama) ![Open Source](https://img.shields.io/badge/Open_Source-Community-blue?style=for-the-badge&logo=github) ![Databricks](https://img.shields.io/badge/Databricks-Enabled-orange?style=for-the-badge&logo=databricks)
+
+
+abstract-title: Important
+abstract: This is an interactive document! Don't forget to explore the expandable sections and embedded content.
+author: Camilo Mayorquín (Data Science Team)
+date: November 28 2025
+
+
+title-block-banner: true
 format:
   html:
+    theme: cosmo
     toc: true
     toc-location: left
     toc-depth: 2
     toc-title: "Contents"
     smooth-scroll: true
 ---
-
-# 🤖 Web Scraping of Competitor Data with Generative AI
-
-::: {align="center"}
-![AI Powered](https://img.shields.io/badge/AI_Powered-Ollama-purple?style=for-the-badge&logo=ollama) ![Open Source](https://img.shields.io/badge/Open_Source-Community-blue?style=for-the-badge&logo=github) ![Databricks](https://img.shields.io/badge/Databricks-Enabled-orange?style=for-the-badge&logo=databricks)
-
-**🚀 *The Ultimate AI-Powered Competitive Intelligence Platform* 🚀**
-:::
 
 ### **Performance Metrics** {#performance-metrics}
 
@@ -445,7 +451,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Chile - Both brands
     L.marker([-33.45, -71.5], {icon: bmwIcon}).addTo(map).bindPopup('<b>🇨🇱 Chile</b><br>BMW: 4 websites');
     L.marker([-35.5, -71.5], {icon: subaruIcon}).addTo(map).bindPopup('<b>🇨🇱 Chile</b><br>Subaru: 1 website');
-    L.marker([-32.0, -71.5], {icon: dercoIcon}).addTo(map).bindPopup('<b>🇨🇱 Chile</b><br>Derco: 1 mystery shopper');
+    L.marker([-32.0, -71.5], {icon: dercoIcon}).addTo(map).bindPopup('<b>🇨🇱 Chile</b><br>Derco: 1 mystery shopper (Suzuki and Renault)');
     
     // Peru - Both brands  
     L.marker([-12.05, -78.0], {icon: bmwIcon}).addTo(map).bindPopup('<b>🇵🇪 Peru</b><br>4 websites');
@@ -455,7 +461,7 @@ document.addEventListener('DOMContentLoaded', function() {
     L.marker([4.7, -74.07], {icon: subaruIcon}).addTo(map).bindPopup('<b>🇨🇴 Colombia</b><br>1 website');
     
     // Bulgaria - Toyota
-    L.marker([42.7, 25.5], {icon: toyotaIcon}).addTo(map).bindPopup('<b>🇧🇬 Bulgaria</b><br>Toyota: 3 websites');
+    L.marker([42.7, 25.5], {icon: toyotaIcon}).addTo(map).bindPopup('<b>🇧🇬 Bulgaria</b><br>Toyota: 3 websites (third party)');
 });
 </script>
 ```
@@ -494,7 +500,7 @@ The scraper runs **automatically every month** via a scheduled Databricks job �
 :::
 ::: {.card style="text-align: center;"}
 ### 🔢 Parts Scraped
-**~100,000**
+**~50,000**
 Across all websites
 :::
 ::: {.card style="text-align: center;"}
@@ -594,7 +600,7 @@ flowchart LR
 
 </details>
 
-## 7. Our own scraping AI Assistant
+## 7. Our Own Scraping AI Assistant
 
 ::: {.callout-tip appearance="simple" icon=false}
 ## 🤖 The Problem
