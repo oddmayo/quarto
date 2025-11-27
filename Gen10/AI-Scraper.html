@@ -697,8 +697,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-U</span> crawl4ai                           <span class="co"># Install Crawl4AI</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> pull qwen2.5:3b                            <span class="co"># Download AI model</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>What we extract from each product:</strong> - Part name - List price (MSRP) - Sale price</p>
+<p><strong>GitHub Repo:</strong>: DA-DS_parts_pricing</p>
 <p><strong>Databricks workspace structure:</strong></p>
-<p><img src="img/folders.png" width="200"></p>
+<pre><code>📁 competitors_ppo_scraper/
+├── 📂 oem_codes/
+├── 📂 scraper_calls/
+├── 📂 markets/
+├── 📂 mystery_shopper/
+└── 📂 third_party/</code></pre>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -721,7 +727,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td><code>mystery_shopper</code></td>
-<td>Data obatined from research</td>
+<td>Data obtained from research</td>
 </tr>
 <tr class="odd">
 <td><code>third_party</code></td>
@@ -796,7 +802,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>$9.87</td>
 <td>$7.81</td>
 <td>subaruparts.com</td>
-<td>Chile 🇨🇱</td>
+<td><img src="https://flagcdn.com/20x15/cl.png" class="img-fluid"> Chile</td>
 </tr>
 </tbody>
 </table>
@@ -860,19 +866,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Chile - Both brands
-    L.marker([-33.45, -71.5], {icon: bmwIcon}).addTo(map).bindPopup('<b>🇨🇱 Chile</b><br>BMW: 4 websites');
-    L.marker([-35.5, -71.5], {icon: subaruIcon}).addTo(map).bindPopup('<b>🇨🇱 Chile</b><br>Subaru: 1 website');
-    L.marker([-32.0, -71.5], {icon: dercoIcon}).addTo(map).bindPopup('<b>🇨🇱 Chile</b><br>Derco: 1 mystery shopper (Suzuki and Renault)');
+    L.marker([-33.45, -71.5], {icon: bmwIcon}).addTo(map).bindPopup('<b><img src="https://flagcdn.com/20x15/cl.png" alt="CL"> Chile</b><br>BMW: 4 websites');
+    L.marker([-35.5, -71.5], {icon: subaruIcon}).addTo(map).bindPopup('<b><img src="https://flagcdn.com/20x15/cl.png" alt="CL"> Chile</b><br>Subaru: 1 website');
+    L.marker([-32.0, -71.5], {icon: dercoIcon}).addTo(map).bindPopup('<b><img src="https://flagcdn.com/20x15/cl.png" alt="CL"> Chile</b><br>Derco: 1 mystery shopper (Suzuki and Renault)');
     
     // Peru - Both brands  
-    L.marker([-12.05, -78.0], {icon: bmwIcon}).addTo(map).bindPopup('<b>🇵🇪 Peru</b><br>4 websites');
-    L.marker([-14.0, -76.0], {icon: subaruIcon}).addTo(map).bindPopup('<b>🇵🇪 Peru</b><br>1 website');
+    L.marker([-12.05, -78.0], {icon: bmwIcon}).addTo(map).bindPopup('<b><img src="https://flagcdn.com/20x15/pe.png" alt="PE"> Peru</b><br>4 websites');
+    L.marker([-14.0, -76.0], {icon: subaruIcon}).addTo(map).bindPopup('<b><img src="https://flagcdn.com/20x15/pe.png" alt="PE"> Peru</b><br>1 website');
     
     // Colombia - Subaru only
-    L.marker([4.7, -74.07], {icon: subaruIcon}).addTo(map).bindPopup('<b>🇨🇴 Colombia</b><br>1 website');
+    L.marker([4.7, -74.07], {icon: subaruIcon}).addTo(map).bindPopup('<b><img src="https://flagcdn.com/20x15/co.png" alt="CO"> Colombia</b><br>1 website');
     
     // Bulgaria - Toyota
-    L.marker([42.7, 25.5], {icon: toyotaIcon}).addTo(map).bindPopup('<b>🇧🇬 Bulgaria</b><br>Toyota: 3 websites (third party)');
+    L.marker([42.7, 25.5], {icon: toyotaIcon}).addTo(map).bindPopup('<b><img src="https://flagcdn.com/20x15/bg.png" alt="BG"> Bulgaria</b><br>Toyota: 3 websites (third party)');
 });
 </script>
 <div class="quarto-layout-panel" data-layout-ncol="4">
@@ -899,6 +905,8 @@ document.addEventListener('DOMContentLoaded', function() {
 <h3 class="anchored" data-anchor-id="its-live-and-running">✅ It’s Live and Running!</h3>
 <p>The scraper runs <strong>automatically every month</strong> via a scheduled Databricks job — no manual intervention needed (except for a few tweaks).</p>
 </section>
+<p><strong>Job name:</strong> Scrapper_PPO</p>
+<p><strong>Cluster used:</strong> Scrapper_PPO_LATAM</p>
 <section id="latest-run-stats" class="level3">
 <h3 class="anchored" data-anchor-id="latest-run-stats">Latest Run Stats</h3>
 </section>
@@ -920,31 +928,77 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<p><strong>Websites being scraped sample:</strong></p>
-<p><img src="img/job_webpages.png" width="100%"></p>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><strong>Websites being scraped:</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Brand</th>
+<th style="text-align: left;">Sites</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><img src="https://img.shields.io/badge/BMW-0066b1?style=flat-square&amp;logo=bmw&amp;logoColor=white.png" class="img-fluid" alt="BMW"></td>
+<td style="text-align: left;">bmwdirectparts.com</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">bmwpartshub.com</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">getbmwparts.com</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">parts.bramanmotorsbmw.com</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><img src="https://img.shields.io/badge/Subaru-013C74?style=flat-square&amp;logo=subaru&amp;logoColor=white.png" class="img-fluid" alt="Subaru"></td>
+<td style="text-align: left;">subaruparts.com</td>
+</tr>
+</tbody>
+</table>
 <p><img src="https://img.shields.io/badge/BMW-4_sites-0066b1?style=flat-square&amp;logo=bmw&amp;logoColor=white.png" class="img-fluid" alt="BMW"> <img src="https://img.shields.io/badge/Subaru-1_site-013C74?style=flat-square&amp;logo=subaru&amp;logoColor=white.png" class="img-fluid" alt="Subaru"></p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>View website list
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><strong>BMW:</strong> bmwdirectparts.com, bmwpartshub.com, getbmwparts.com, parts.bramanmotorsbmw.com</p>
-<p><strong>Subaru:</strong> subaruparts.com</p>
-</div>
-</div>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<p><strong>Execution time:</strong></p>
-<p><img src="img/job_time.png" width="100%"></p>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><strong>Execution time breakdown:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Task</th>
+<th style="text-align: left;">Duration</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">🚀 Setup &amp; initialization</td>
+<td style="text-align: left;">~10 min</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">🔄 BMW sites (4)</td>
+<td style="text-align: left;">~100 hours</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">🔄 Subaru site (1)</td>
+<td style="text-align: left;">~106 hours</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">📊 Data consolidation</td>
+<td style="text-align: left;">~5 min</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Total</strong></td>
+<td style="text-align: left;"><strong>~106 hours</strong></td>
+</tr>
+</tbody>
+</table>
+<p><em>All scrapers run in parallel</em></p>
 </div>
 </div>
 </div>
@@ -1118,7 +1172,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <iframe src="https://camilo112263.shinyapps.io/crawl4ai-assistant/" width="100%" height="750px" frameborder="0" style="border: 1px solid #dee2e6; border-radius: 8px;">
 </iframe>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1127,7 +1181,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The assistant uses <strong>Retrieval-Augmented Generation (RAG)</strong> to answer questions about Crawl4AI with high accuracy.</p>
 <p><strong>Tech Stack:</strong></p>
@@ -1255,6 +1309,23 @@ document.addEventListener('DOMContentLoaded', function() {
 <center style="color: #888; font-size: 0.9em;">
 <em>This document was created with the help of GitHub Copilot.</em>
 </center>
+<a href="#" id="back-to-top" style="
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #7b1fa2;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 1000;
+" title="Back to top">↑</a>
 </section>
 
 </main>

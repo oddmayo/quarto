@@ -345,16 +345,25 @@ ollama pull qwen2.5:3b                            # Download AI model
 - List price (MSRP)
 - Sale price
 
+**GitHub Repo:**: DA-DS_parts_pricing
+
 **Databricks workspace structure:**
 
-<img src="img/folders.png" width="200"/>
+```
+📁 competitors_ppo_scraper/
+├── 📂 oem_codes/
+├── 📂 scraper_calls/
+├── 📂 markets/
+├── 📂 mystery_shopper/
+└── 📂 third_party/
+```
 
 | Folder | Purpose |
 |--------|---------|
 | `oem_codes` | Consolidates part numbers from different ERPs |
 | `scraper_calls` | Core scraping automation logic |
 | `markets` | Website-specific notebooks |
-| `mystery_shopper` | Data obatined from research |
+| `mystery_shopper` | Data obtained from research |
 | `third_party` | Data obtained from third party scrapers |
 
 :::
@@ -395,7 +404,7 @@ Date & source
 
 | Part Code | Part Name | List Price | Sale Price | Competitor | Country |
 |-----------|-----------|------------|------------|------------|---------|
-| 806750050 | Transmission Oil Pump Seal | $9.87 | $7.81 | subaruparts.com | Chile 🇨🇱 |
+| 806750050 | Transmission Oil Pump Seal | $9.87 | $7.81 | subaruparts.com | ![](https://flagcdn.com/20x15/cl.png) Chile |
 
 ::: {.callout-note collapse="true"}
 ## 📍 Table Location (click to expand)
@@ -449,19 +458,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Chile - Both brands
-    L.marker([-33.45, -71.5], {icon: bmwIcon}).addTo(map).bindPopup('<b>🇨🇱 Chile</b><br>BMW: 4 websites');
-    L.marker([-35.5, -71.5], {icon: subaruIcon}).addTo(map).bindPopup('<b>🇨🇱 Chile</b><br>Subaru: 1 website');
-    L.marker([-32.0, -71.5], {icon: dercoIcon}).addTo(map).bindPopup('<b>🇨🇱 Chile</b><br>Derco: 1 mystery shopper (Suzuki and Renault)');
+    L.marker([-33.45, -71.5], {icon: bmwIcon}).addTo(map).bindPopup('<b><img src="https://flagcdn.com/20x15/cl.png" alt="CL"> Chile</b><br>BMW: 4 websites');
+    L.marker([-35.5, -71.5], {icon: subaruIcon}).addTo(map).bindPopup('<b><img src="https://flagcdn.com/20x15/cl.png" alt="CL"> Chile</b><br>Subaru: 1 website');
+    L.marker([-32.0, -71.5], {icon: dercoIcon}).addTo(map).bindPopup('<b><img src="https://flagcdn.com/20x15/cl.png" alt="CL"> Chile</b><br>Derco: 1 mystery shopper (Suzuki and Renault)');
     
     // Peru - Both brands  
-    L.marker([-12.05, -78.0], {icon: bmwIcon}).addTo(map).bindPopup('<b>🇵🇪 Peru</b><br>4 websites');
-    L.marker([-14.0, -76.0], {icon: subaruIcon}).addTo(map).bindPopup('<b>🇵🇪 Peru</b><br>1 website');
+    L.marker([-12.05, -78.0], {icon: bmwIcon}).addTo(map).bindPopup('<b><img src="https://flagcdn.com/20x15/pe.png" alt="PE"> Peru</b><br>4 websites');
+    L.marker([-14.0, -76.0], {icon: subaruIcon}).addTo(map).bindPopup('<b><img src="https://flagcdn.com/20x15/pe.png" alt="PE"> Peru</b><br>1 website');
     
     // Colombia - Subaru only
-    L.marker([4.7, -74.07], {icon: subaruIcon}).addTo(map).bindPopup('<b>🇨🇴 Colombia</b><br>1 website');
+    L.marker([4.7, -74.07], {icon: subaruIcon}).addTo(map).bindPopup('<b><img src="https://flagcdn.com/20x15/co.png" alt="CO"> Colombia</b><br>1 website');
     
     // Bulgaria - Toyota
-    L.marker([42.7, 25.5], {icon: toyotaIcon}).addTo(map).bindPopup('<b>🇧🇬 Bulgaria</b><br>Toyota: 3 websites (third party)');
+    L.marker([42.7, 25.5], {icon: toyotaIcon}).addTo(map).bindPopup('<b><img src="https://flagcdn.com/20x15/bg.png" alt="BG"> Bulgaria</b><br>Toyota: 3 websites (third party)');
 });
 </script>
 ```
@@ -482,13 +491,16 @@ document.addEventListener('DOMContentLoaded', function() {
 :::
 
 
-
 ## 6. Databricks Job
 
 ::: {.callout-success appearance="simple" icon=false}
 ### ✅ It's Live and Running!
 The scraper runs **automatically every month** via a scheduled Databricks job — no manual intervention needed (except for a few tweaks).
 :::
+
+**Job name:** Scrapper_PPO
+
+**Cluster used:** Scrapper_PPO_LATAM
 
 ### Latest Run Stats
 
@@ -510,25 +522,33 @@ Across all websites
 :::
 :::
 
+
 ::: {layout-ncol=2}
 ::: {}
-**Websites being scraped sample:**
+**Websites being scraped:**
 
-<img src="img/job_webpages.png" width="100%"/>
+| Brand | Sites |
+|-------|-------|
+| ![BMW](https://img.shields.io/badge/BMW-0066b1?style=flat-square&logo=bmw&logoColor=white) | bmwdirectparts.com |
+| | bmwpartshub.com |
+| | getbmwparts.com |
+| | parts.bramanmotorsbmw.com |
+| ![Subaru](https://img.shields.io/badge/Subaru-013C74?style=flat-square&logo=subaru&logoColor=white) | subaruparts.com |
 
 ![BMW](https://img.shields.io/badge/BMW-4_sites-0066b1?style=flat-square&logo=bmw&logoColor=white) ![Subaru](https://img.shields.io/badge/Subaru-1_site-013C74?style=flat-square&logo=subaru&logoColor=white)
-
-::: {.callout-note collapse="true" appearance="minimal"}
-## View website list
-**BMW:** bmwdirectparts.com, bmwpartshub.com, getbmwparts.com, parts.bramanmotorsbmw.com
-
-**Subaru:** subaruparts.com
-:::
 :::
 ::: {}
-**Execution time:**
+**Execution time breakdown:**
 
-<img src="img/job_time.png" width="100%"/>
+| Task | Duration |
+|------|----------|
+| 🚀 Setup & initialization | ~10 min |
+| 🔄 BMW sites (4) | ~100 hours |
+| 🔄 Subaru site (1) | ~106 hours |
+| 📊 Data consolidation | ~5 min |
+| **Total** | **~106 hours** |
+
+*All scrapers run in parallel*
 :::
 :::
 
@@ -711,3 +731,23 @@ flowchart LR
 <center style="color: #888; font-size: 0.9em;">
 *This document was created with the help of GitHub Copilot.*
 </center>
+
+```{=html}
+<a href="#" id="back-to-top" style="
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #7b1fa2;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 1000;
+" title="Back to top">↑</a>
+```
