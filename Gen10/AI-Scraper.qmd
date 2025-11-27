@@ -8,7 +8,7 @@ subtitle: |
 
 abstract-title: Important
 abstract: This is an interactive document! Don't forget to explore the expandable sections and embedded content.
-author: Camilo Mayorquín (Data Science Team)
+author: Camilo Mayorquín - Data Science Team
 date: November 28 2025
 
 
