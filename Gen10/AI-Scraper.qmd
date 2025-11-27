@@ -3,9 +3,9 @@ title: ""
 format:
   html:
     toc: true
-    toc-location: body
+    toc-location: left
     toc-depth: 2
-    toc-title: "📑 Table of Contents"
+    toc-title: "Contents"
     smooth-scroll: true
 ---
 

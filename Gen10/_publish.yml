@@ -1,0 +1,4 @@
+- source: AI-Scraper.qmd
+  quarto-pub:
+    - id: bb7b66c9-935d-46c5-94fe-4fcdd5399a6c
+      url: https://oddmayo.quarto.pub/ai-scraper
