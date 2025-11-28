@@ -469,8 +469,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Colombia - Subaru only
     L.marker([4.7, -74.07], {icon: subaruIcon}).addTo(map).bindPopup('<b><img src="https://flagcdn.com/20x15/co.png" alt="CO"> Colombia</b><br>1 website');
     
-    // Bulgaria - Toyota
-    L.marker([42.7, 25.5], {icon: toyotaIcon}).addTo(map).bindPopup('<b><img src="https://flagcdn.com/20x15/bg.png" alt="BG"> Bulgaria</b><br>Toyota: 3 websites (third party)');
+    // Greece - Toyota
+    L.marker([39.0, 22.0], {icon: toyotaIcon}).addTo(map).bindPopup('<b><img src="https://flagcdn.com/20x15/gr.png" alt="GR"> Greece</b><br>Toyota: 3 websites (third party)');
 });
 </script>
 ```
@@ -486,7 +486,7 @@ document.addEventListener('DOMContentLoaded', function() {
 ![](https://img.shields.io/badge/Derco-Chile-E31837?style=flat-square&logoColor=white)
 :::
 ::: {}
-![](https://img.shields.io/badge/Toyota-Bulgaria-EB0A1E?style=flat-square&logo=toyota&logoColor=white)
+![](https://img.shields.io/badge/Toyota-Greece-EB0A1E?style=flat-square&logo=toyota&logoColor=white)
 :::
 :::
 
